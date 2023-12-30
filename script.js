@@ -309,3 +309,167 @@ switch (weekDay) {
 }
 
 console.log(weekDay);
+
+// Task No. 7 (functions) / part 1
+
+function userName(uName) {
+  console.log(uName);
+}
+
+userName("Antanas");
+
+// Task No. 7 (functions) / part 2
+
+function randomNumber(min, max) {
+  let random = Math.random();
+  random = random * (max - min);
+  random = random + min;
+  random = Math.round(random);
+  return random;
+}
+
+const randomGen = randomNumber(1, 5);
+
+console.log(randomGen);
+
+// Task No. 7 (functions) / part 3
+
+const firstName = "Petras";
+const lastName = "Slekys";
+
+function nameLetterCalc(fName, lName) {
+  const fNameLength = fName.length;
+  const lNameLength = lName.length;
+  const sumLength = fNameLength + lNameLength;
+  return sumLength;
+}
+
+const calcLength = nameLetterCalc(firstName, lastName);
+
+console.log(calcLength);
+
+// Task No. 7 (functions) / part 4
+
+const abc = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
+];
+
+console.log(abc[1]);
+
+// Task No. 7 (functions) / part 5
+
+const numA = 6;
+const numB = 11;
+
+function oper(n1, n2, operator) {
+  if (operator === "sum") {
+    return n1 + n2;
+  } else if (operator === "sub") {
+    return n1 - n2;
+  } else if (operator === "div") {
+    return n1 / n2;
+  } else if (operator === "multi") {
+    return n1 * n2;
+  }
+}
+
+const summary = oper(numA, numB, "div");
+
+console.log(summary);
+
+// Task No. 7 (functions) / part 6
+
+function random10(min, max) {
+  const randomGen = Math.random();
+  const form = Math.round(randomGen * (max - min) + min);
+  return form;
+}
+
+function squareNum(num) {
+  const square = Math.pow(num, 2);
+  return square;
+}
+
+console.log(squareNum(random10(1, 10)));
+
+// Task No. 8 (arrays) / part 1 (simple adding to array)
+
+const arr = [2, 3, 4];
+arr.unshift(1);
+
+console.log(arr);
+
+// Task No. 8 (arrays) / part 2 (how many numbers not repeating them self?)
+
+const myArr = [
+  1, 2, 2, 3, 3, 3, 3, 4, 4, 5, 5, 6, 6, 6, 6, 7, 7, 8, 9, 9, 9, 9, 10,
+];
+
+for (let index = 0; index < myArr.length; index++) {
+  const myArrayNum1 = myArr[index];
+
+  console.log(myArrayNum1);
+}
+
+// another method__
+
+const myArrayElements = [];
+
+for (let i = 0; i < myArr.length; i++) {
+  if (!myArrayElements.includes(myArr[i])) {
+    myArrayElements.push(myArr[i]);
+  }
+}
+
+console.log(myArrayElements);
+console.log(myArrayElements.length);
+
+// testing Set() functionality
+
+const myArrSet = new Set([
+  1, 2, 2, 3, 3, 3, 3, 4, 4, 5, 5, 6, 6, 6, 6, 7, 7, 8, 9, 9, 9, 9, 10,
+]);
+
+console.log(myArrSet);
+
+// Task No. 8 (arrays) / part 3 (only positive numbers fro array)
+
+const arrChange = [-3, 1, -2, -5, 6, 3, -1, 5, -3];
+
+function keepPositive(arr) {
+  const arrNew = [];
+
+  for (let i = 0; i < arrChange.length; i++) {
+    if (arrChange[i] > 0) {
+      arrNew.push(arrChange[i]);
+    }
+  }
+  return arrNew;
+}
+
+console.log(keepPositive(arrChange));

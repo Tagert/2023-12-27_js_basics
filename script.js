@@ -348,7 +348,7 @@ const calcLength = nameLetterCalc(firstName, lastName);
 
 console.log(calcLength);
 
-// Task No. 7 (functions) / part 4
+// Task No. 7 (functions) / part 4 (assign a number (form 1, 2, 3 ... etc.) to each letter, goal is: when calling a number from an array, it produces a corresponding letter)
 
 const abc = [
   "A",
@@ -379,7 +379,20 @@ const abc = [
   "Z",
 ];
 
-console.log(abc[1]);
+function numLetter(num) {
+  // const abcNum = [];
+  num -= 1;
+  const abcNumIndex = abc[num];
+
+  // for (let i = 1; i < abc.length + 1; i++) {
+  //   if (true) {
+  //     abcNum.push(i);
+  //   }
+  // }
+  return abcNumIndex;
+}
+
+console.log(numLetter(1));
 
 // Task No. 7 (functions) / part 5
 
@@ -417,7 +430,7 @@ function squareNum(num) {
 
 console.log(squareNum(random10(1, 10)));
 
-// Task No. 8 (arrays) / part 1 (simple adding to array)
+// Task No. 8 (arrays) / part 1 (simple adding (at beginning) to array)
 
 const arr = [2, 3, 4];
 arr.unshift(1);
@@ -457,7 +470,7 @@ const myArrSet = new Set([
 
 console.log(myArrSet);
 
-// Task No. 8 (arrays) / part 3 (only positive numbers fro array)
+// Task No. 8 (arrays) / part 3 (only positive numbers from array)
 
 const arrChange = [-3, 1, -2, -5, 6, 3, -1, 5, -3];
 
@@ -473,3 +486,230 @@ function keepPositive(arr) {
 }
 
 console.log(keepPositive(arrChange));
+
+// Task No. 8 (arrays) / part 4 (check if the number of your choice is repeating itself in the array)
+
+const arrRepeat = [1, 2, 3, 4, 3, 5, 1, 6, 7, 3, 8, 9];
+
+function doesRepeat(arr, num) {
+  const repeatItSelf = arr.indexOf(num) !== arr.lastIndexOf(num);
+
+  if (repeatItSelf) {
+    return console.log(
+      `The number ${num} is repeating. Please check your array.`
+    );
+  } else {
+    return console.log(`The number ${num} does not repeat.`);
+  }
+  console.log(num);
+}
+
+doesRepeat(arrRepeat, 5);
+
+// Task No. 8 (arrays) / part 5 (transform the numbers in array, if number is even then divide it by 2, if number is odd then multiply it by 3, return a transformed array)
+
+const arrBefore = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+
+function multiplyArr(arr) {
+  const transformedArr = [];
+
+  for (let i = 0; i < arrBefore.length; i++) {
+    if (arrBefore[i] % 2 === 0) {
+      transformedArr.push(arrBefore[i] / 2);
+    } else {
+      transformedArr.push(arrBefore[i] * 3);
+    }
+    console.log(arrBefore[i]);
+  }
+
+  return transformedArr;
+}
+
+console.log(multiplyArr(arrBefore));
+
+// Task No. 9 (for loop) / part 1 and 2 (combined) (repeat you name (10 times) with - for loop)
+
+const tellYourName = "Andrew";
+const howManyRepeats = 10;
+
+function sayYourName() {
+  return console.log(`Your name is ${tellYourName}`);
+}
+
+// for (let i = 0; i < howManyRepeats; i++) {
+//   sayYourName();
+// }
+
+// Task No. 9 (for loop) / part 2 (number of and next to it your name)
+
+const yourNameIs = "Andrew";
+const manyRepeats = 10;
+
+// function whatYourName() {
+//   return console.log(`Your name is ${yourNameIs}`);
+// }
+
+const sentenceWithName = `Your name is ${yourNameIs}`;
+
+for (let i = 1; i <= manyRepeats; i++) {
+  let count = i;
+  console.log(`${sentenceWithName} and it's ${count} loop.`);
+}
+
+// Task No. 10 (for loop) / part 3 (count down 10 to 1)
+
+for (let i = 10; i > 0; i--) {
+  console.log(i);
+}
+
+// Task No. 10 (while loop) past 1 (3 times your name)
+
+const nameWhile = "Andrews";
+let index = 0;
+
+while (index < 3) {
+  console.log(nameWhile);
+  index++;
+}
+
+// Task No. 10 (while loop) past 2 (do while loop, how many times in one loop repeat your name)
+
+let i = 0;
+
+let combo = "";
+const nameDo = "Andrews";
+const times = 5;
+
+do {
+  combo += nameDo;
+  console.log(combo);
+  i++;
+} while (i < times);
+
+// Task No. 11 (loops and conditions, practice ) past 1 (loop from 1 to 5)
+
+for (let i = 1; i <= 5; i++) {
+  // console.log(i);
+}
+
+// Task No. 11 (loops and conditions, practice ) past 2 (loop - sum from 1 to 5)
+
+let indexx = 1;
+let sum = 0;
+
+while (indexx <= 5) {
+  sum = sum + indexx;
+  indexx++;
+}
+
+console.log(sum);
+
+// Task No. 11 (loops and conditions, practice ) past 3 (output - even numbers)
+
+for (let i = 1; i <= 10; i++) {
+  if (i % 2 === 0) {
+    console.log(i);
+  }
+}
+
+// Task No. 11 (loops and conditions, practice ) past 4 (count down from 10 to 1)
+
+for (let i = 10; i >= 1; i--) {
+  console.log(i);
+}
+
+// Task No. 11 (loops and conditions, practice ) past 5 (how many numbers are divisible by 3)
+
+// while loop
+
+let indexW = 1;
+
+while (indexW <= 20) {
+  if (indexW % 3 === 0) {
+    console.log(indexW);
+  }
+  indexW++;
+}
+
+// for loop
+
+let howMany = 0;
+
+for (let i = 1; i <= 20; i++) {
+  if (i % 3 === 0) {
+    howMany++;
+  }
+}
+console.log(`We can detect ${howMany} numbers, that are divisible by 3`);
+
+// Task No. 11 (loops and conditions, practice ) past 6 (find the biggest number from array)
+
+const arrBiggestNumber = [
+  1, 3, 5, 4, 8, 54, 32, 12, 3, 8, 97, 34, 65, 56, 42, 67, 85, 1, 71,
+];
+
+let storeNumber = arrBiggestNumber[0];
+
+for (let i = 0; i < arrBiggestNumber.length; i++) {
+  if (arrBiggestNumber[i] > storeNumber) {
+    storeNumber = arrBiggestNumber[i];
+  }
+}
+
+console.log(storeNumber);
+
+// Task No. 12 (loops and conditions, practice ) past 7 (output 15 numbers which divide by variable)
+
+const providedNum = 50;
+
+let countsUpTo = 15;
+
+function dividing(num) {
+  for (let i = 0; i <= countsUpTo; i++) {
+    if (num % i === 0) {
+      console.log(
+        `Number witch you can divide - ${i} by your chosen number ${num}`
+      );
+    }
+  }
+}
+
+dividing(providedNum);
+
+// Task No. 12 (loops and conditions, practice ) past 7 (select all odd numbers from the array and output those in a new array)
+
+const yourArr = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 20, 25, 30, 33, 36, 39, 48, 73,
+  79, 81,
+];
+
+const oddNumbers = [];
+
+function oddArr(arr) {
+  for (let i = 0; i < yourArr.length; i++) {
+    if (yourArr[i] % 2 !== 0) {
+      oddNumbers.push(yourArr[i]);
+    }
+  }
+  return oddNumbers;
+}
+
+console.log(oddArr(yourArr));
+
+// Task No. 12 (loops and conditions, practice ) past 7
+
+const numTill = 20;
+let zero = 0;
+
+function primeNumber(num) {
+  for (let i = 0; i <= num; i++) {
+    if (i === 1) {
+    } else if (i === 2 || i === 3) {
+      console.log(i);
+    } else if (i % 2 !== 0 && i % 3 !== 0) {
+      console.log(i);
+    }
+  }
+}
+
+primeNumber(numTill);

@@ -562,7 +562,7 @@ for (let i = 10; i > 0; i--) {
   console.log(i);
 }
 
-// Task No. 10 (while loop) past 1 (3 times your name)
+// Task No. 10 (while loop) part 1 (3 times your name)
 
 const nameWhile = "Andrews";
 let index = 0;
@@ -572,7 +572,7 @@ while (index < 3) {
   index++;
 }
 
-// Task No. 10 (while loop) past 2 (do while loop, how many times in one loop repeat your name)
+// Task No. 10 (while loop) part 2 (do while loop, how many times in one loop repeat your name)
 
 let i = 0;
 
@@ -586,13 +586,13 @@ do {
   i++;
 } while (i < times);
 
-// Task No. 11 (loops and conditions, practice ) past 1 (loop from 1 to 5)
+// Task No. 11 (loops and conditions, practice ) part 1 (loop from 1 to 5)
 
 for (let i = 1; i <= 5; i++) {
   // console.log(i);
 }
 
-// Task No. 11 (loops and conditions, practice ) past 2 (loop - sum from 1 to 5)
+// Task No. 11 (loops and conditions, practice ) part 2 (loop - sum from 1 to 5)
 
 let indexx = 1;
 let sum = 0;
@@ -604,7 +604,7 @@ while (indexx <= 5) {
 
 console.log(sum);
 
-// Task No. 11 (loops and conditions, practice ) past 3 (output - even numbers)
+// Task No. 11 (loops and conditions, practice ) part 3 (output - even numbers)
 
 for (let i = 1; i <= 10; i++) {
   if (i % 2 === 0) {
@@ -612,13 +612,13 @@ for (let i = 1; i <= 10; i++) {
   }
 }
 
-// Task No. 11 (loops and conditions, practice ) past 4 (count down from 10 to 1)
+// Task No. 11 (loops and conditions, practice ) part 4 (count down from 10 to 1)
 
 for (let i = 10; i >= 1; i--) {
   console.log(i);
 }
 
-// Task No. 11 (loops and conditions, practice ) past 5 (how many numbers are divisible by 3)
+// Task No. 11 (loops and conditions, practice ) part 5 (how many numbers are divisible by 3)
 
 // while loop
 
@@ -642,7 +642,7 @@ for (let i = 1; i <= 20; i++) {
 }
 console.log(`We can detect ${howMany} numbers, that are divisible by 3`);
 
-// Task No. 11 (loops and conditions, practice ) past 6 (find the biggest number from array)
+// Task No. 11 (loops and conditions, practice ) part 6 (find the biggest number from array)
 
 const arrBiggestNumber = [
   1, 3, 5, 4, 8, 54, 32, 12, 3, 8, 97, 34, 65, 56, 42, 67, 85, 1, 71,
@@ -658,7 +658,7 @@ for (let i = 0; i < arrBiggestNumber.length; i++) {
 
 console.log(storeNumber);
 
-// Task No. 12 (loops and conditions, practice ) past 7 (output 15 numbers which divide by variable)
+// Task No. 12 (loops and conditions, practice ) part 7 (output 15 numbers which divide by variable)
 
 const providedNum = 50;
 
@@ -676,7 +676,7 @@ function dividing(num) {
 
 dividing(providedNum);
 
-// Task No. 12 (loops and conditions, practice ) past 7 (select all odd numbers from the array and output those in a new array)
+// Task No. 12 (loops and conditions, practice ) part 8 (select all odd numbers from the array and output those in a new array)
 
 const yourArr = [
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 20, 25, 30, 33, 36, 39, 48, 73,
@@ -696,7 +696,7 @@ function oddArr(arr) {
 
 console.log(oddArr(yourArr));
 
-// Task No. 12 (loops and conditions, practice ) past 7
+// Task No. 12 (loops and conditions, practice ) part 9 (need to find prime number from following sequence 1-20 )
 
 const numTill = 20;
 let zero = 0;
@@ -713,3 +713,273 @@ function primeNumber(num) {
 }
 
 primeNumber(numTill);
+
+// Another method
+
+for (let i = 1; i <= 20; i++) {
+  let isPrime = true;
+  if (i > 1) {
+    for (let j = 2; j < i; j++) {
+      if (i % j === 0) {
+        isPrime = false;
+        break;
+      }
+    }
+    if (isPrime) {
+      console.log(i);
+    }
+  }
+}
+
+// Task No. 12 (loops and conditions, practice ) part 9 (Fibonacci number)
+
+// first method
+
+const howManySequences = 10;
+
+function fiboGen(num) {
+  let num1 = 0;
+  let num2 = 1;
+  let sum;
+
+  for (let i = 0; i <= num; i++) {
+    sum = num1 + num2;
+    num1 = num2;
+    num2 = sum;
+    console.log(`sequence - ${sum}`);
+  }
+  return sum;
+}
+
+console.log(
+  `The last number of Fibonacci sequence is ${fiboGen(howManySequences)}`
+);
+
+// second method with - array
+
+const arrFab = [0];
+
+function Genfibonacci(num) {
+  let nextTerm = 1;
+
+  for (let i = 0; i < num - 1; i++) {
+    arrFab.push(nextTerm);
+    nextTerm = nextTerm + arrFab[i];
+  }
+  return arrFab;
+}
+
+const funGen = Genfibonacci(howManySequences);
+
+console.log(`Array - ${funGen}`);
+
+// Task No. 13 (additional tasks, practice ) part 1 (array - add, remove, replace)
+
+const arrAdditional = [
+  4,
+  5,
+  -5556,
+  155,
+  640,
+  "15x",
+  6789,
+  -5564,
+  478,
+  654,
+  "obuolys",
+  789,
+  -51,
+  55,
+  -222,
+  0,
+  -357,
+  -56,
+  "trylika",
+  444,
+  7778,
+  4154,
+  4751,
+];
+
+// task 1
+arrAdditional.shift();
+
+// task 2
+arrAdditional.pop();
+
+// task 3
+let indexToRemove = 10;
+arrAdditional.splice(indexToRemove, 1);
+
+// task 4
+let indexToRemove2 = 18;
+arrAdditional.splice(indexToRemove2, 1);
+
+// task 5
+let indexToRemove3 = 1;
+arrAdditional.splice(indexToRemove3, 1);
+
+// task 6
+let indexToRemove4 = 6;
+arrAdditional.splice(indexToRemove4, 2);
+
+// task 7
+let indexToRemove5 = 10;
+arrAdditional.splice(indexToRemove5, 3);
+
+// task 8
+arrAdditional.splice(2, 1, 888);
+
+// task 9
+arrAdditional.splice(9, 1, 33, 789, 6543);
+
+// task 10
+arrAdditional.pop();
+arrAdditional.push(321, 654, 987);
+
+// task 11
+arrAdditional.splice(1, 0, 11);
+
+// task 12
+arrAdditional.splice(13, 0, 1);
+
+// task 13
+arrAdditional.splice(18, 0, -1);
+
+// task 14
+arrAdditional.unshift(1, 2, 3);
+
+// task 15
+arrAdditional.push(-333, -321, -312);
+
+// task 16
+arrAdditional.splice(13, 0, 0);
+
+// task 17
+arrAdditional.shift();
+
+// task 18
+arrAdditional.pop();
+
+// task 19
+arrAdditional.unshift("start");
+
+// task 20
+arrAdditional.push("end");
+console.log(arrAdditional);
+
+// Task No. 13 (additional tasks, practice ) part 2 (Fizz = if divide by 3, Buzz = if divide by 5 and FizzBuzz = combined, replacing numbers)
+
+// first method (data in array)
+
+const arrFizzBuzz = [];
+const fi = "Fizz";
+const bu = "Buzz";
+const fiBu = "FizzBuzz";
+
+function fb(sequence) {
+  for (let i = 1; i <= 100; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      arrFizzBuzz.push(fiBu);
+    } else if (i % 5 === 0) {
+      arrFizzBuzz.push(bu);
+    } else if (i % 3 === 0) {
+      arrFizzBuzz.push(fi);
+    } else {
+      arrFizzBuzz.push(i);
+    }
+  }
+  return arrFizzBuzz;
+}
+
+console.log(fb(100));
+
+// second method (data in c.l output)
+
+function fiBuzz(sequence) {
+  for (let i = 1; i <= sequence; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log(fiBu);
+    } else if (i % 5 === 0) {
+      console.log(bu);
+    } else if (i % 3 === 0) {
+      console.log(fi);
+    } else {
+      console.log(i);
+    }
+  }
+  return;
+}
+
+fiBuzz(100);
+
+// Task No. 14 (expressions and arrow functions ) part 1 (output your name with arrow function)
+
+const myNameFunc = (yourName) => console.log(yourName);
+
+myNameFunc("Andrew");
+
+// Task No. 14 (expressions and arrow functions ) part 2 (random generator from 1 to 5)
+
+const myRandomNumber = (min, max) => {
+  const rand = Math.random();
+  const randNum = Math.round(rand * (max - min) + min);
+  return randNum;
+};
+
+console.log(myRandomNumber(1, 5));
+
+// Task No. 14 (expressions and arrow functions ) part 3 (strings of name and last name words sum)
+
+const nameSum = (yourName, lastName) => {
+  const n1 = yourName.length;
+  const n2 = lastName.length;
+  return n1 + n2;
+};
+
+console.log(nameSum("Petras", "Slekys"));
+
+// Task No. 14 (expressions and arrow functions ) part 4 (assign a numerical value to the letter 'abd' based on position in the alphabet)
+
+const abcNumerical = (num) => {
+  const transformNum = abc[num - 1];
+  return transformNum;
+};
+
+console.log(abcNumerical(1));
+
+// Task No. 14 (expressions and arrow functions ) part 5 (output = sum, sub, dvi, multi)
+
+const operatorInUse = "dvi";
+const number1 = 332;
+const number2 = 201;
+
+const calculator = (n1, n2, operator) => {
+  if (operator === "sum") {
+    return Math.n1 + n2;
+  } else if (operator === "sub") {
+    return n1 - n2;
+  } else if (operator === "dvi") {
+    return n1 / n2;
+  } else if (operator === "multi") {
+    return n1 * n2;
+  } else {
+    return console.log(
+      `Occurred error, please use one of operators: "sum", "sub", "dvi", "multi".`
+    );
+  }
+};
+
+console.log(calculator(number1, number2, operatorInUse));
+
+// Task No. 14 (expressions and arrow functions ) part 6 (2 functions: first create random number from 1 to 10, second function randomly generated a number and calculates its square)
+
+const yourRandomNum = (min, max) => {
+  return Math.round(Math.random() * (max - min) + min);
+};
+
+const youSquareNum = (randomNum) => {
+  return Math.pow(randomNum, 2);
+};
+
+console.log(youSquareNum(yourRandomNum(1, 10)));

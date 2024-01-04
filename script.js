@@ -1,5 +1,5 @@
 "use strict";
-
+console.groupCollapsed("if else statement, switch and variables");
 // let year = 2023;
 // year -= 18;
 // console.log(year);
@@ -310,6 +310,9 @@ switch (weekDay) {
 
 console.log(weekDay);
 
+console.groupEnd();
+console.groupCollapsed("functions and arrays");
+
 // Task No. 7 (functions) / part 1
 
 function userName(uName) {
@@ -470,6 +473,9 @@ const myArrSet = new Set([
 
 console.log(myArrSet);
 
+console.groupEnd();
+
+console.groupCollapsed("more arrays and loops (for, while)");
 // Task No. 8 (arrays) / part 3 (only positive numbers from array)
 
 const arrChange = [-3, 1, -2, -5, 6, 3, -1, 5, -3];
@@ -731,7 +737,11 @@ for (let i = 1; i <= 20; i++) {
   }
 }
 
-// Task No. 12 (loops and conditions, practice ) part 9 (Fibonacci number)
+console.groupEnd();
+
+console.groupCollapsed("expression and arrow functions");
+
+// Task No. 12 (loops and conditions, practice ) part 10 (Fibonacci number)
 
 // first method
 
@@ -773,7 +783,7 @@ const funGen = Genfibonacci(howManySequences);
 
 console.log(`Array - ${funGen}`);
 
-// Task No. 13 (additional tasks, practice ) part 1 (array - add, remove, replace)
+// Task No. 13 (additional tasks, practice ) part 1a (array - add, remove, replace)
 
 const arrAdditional = [
   4,
@@ -803,82 +813,132 @@ const arrAdditional = [
 
 // task 1
 arrAdditional.shift();
-
 // task 2
 arrAdditional.pop();
-
 // task 3
 let indexToRemove = 10;
 arrAdditional.splice(indexToRemove, 1);
-
 // task 4
 let indexToRemove2 = 18;
 arrAdditional.splice(indexToRemove2, 1);
-
 // task 5
 let indexToRemove3 = 1;
 arrAdditional.splice(indexToRemove3, 1);
-
 // task 6
 let indexToRemove4 = 6;
 arrAdditional.splice(indexToRemove4, 2);
-
 // task 7
 let indexToRemove5 = 10;
 arrAdditional.splice(indexToRemove5, 3);
-
 // task 8
 arrAdditional.splice(2, 1, 888);
-
 // task 9
 arrAdditional.splice(9, 1, 33, 789, 6543);
-
 // task 10
 arrAdditional.pop();
 arrAdditional.push(321, 654, 987);
-
 // task 11
 arrAdditional.splice(1, 0, 11);
-
 // task 12
 arrAdditional.splice(13, 0, 1);
-
 // task 13
 arrAdditional.splice(18, 0, -1);
-
 // task 14
 arrAdditional.unshift(1, 2, 3);
-
 // task 15
 arrAdditional.push(-333, -321, -312);
-
 // task 16
 arrAdditional.splice(13, 0, 0);
-
 // task 17
 arrAdditional.shift();
-
 // task 18
 arrAdditional.pop();
-
 // task 19
 arrAdditional.unshift("start");
-
 // task 20
 arrAdditional.push("end");
 console.log(arrAdditional);
+
+// Task No. 13 (additional tasks, practice ) part 12 (array - add, remove, replace (without modification))
+
+// task 2.1
+const slice1 = arrAdditional.slice(0, 1);
+// task 2.2
+const slice2 = arrAdditional.slice(-1);
+// task 2.3
+const slice3 = arrAdditional.slice(1, 2);
+// task 2.4
+const slice4 = arrAdditional.slice(-2, -1);
+// task 2.5
+const slice5 = arrAdditional.slice(7, 8);
+// task 2.6
+const slice6 = arrAdditional.slice(18, 19);
+// task 2.7
+const slice7 = arrAdditional.slice(13, 14);
+// task 2.8
+const slice8 = arrAdditional.slice(0, 3);
+// task 2.9
+const slice9 = arrAdditional.slice(-3);
+// task 2.10
+const slice10 = arrAdditional.slice(0, 10);
+// task 2.11
+const slice11 = arrAdditional.slice(-10, 27);
+// task 2.12
+const slice12 = arrAdditional.slice(2, 8);
+// task 2.13
+const slice13 = arrAdditional.slice(-5, 27);
+// task 2.14
+const slice14 = arrAdditional.slice(10, 19);
+// task 2.15
+const slice15 = arrAdditional.slice(-17, -8);
+// task 2.16
+const slice16 = arrAdditional.slice(1, 27);
+// task 2.17
+const slice17 = arrAdditional.slice(-27, -1);
+// task 2.18
+const slice18 = arrAdditional.slice(5, 27);
+// task 2.19
+const slice19 = arrAdditional.slice(-27, -5);
+// task 2.20
+const slice20 = arrAdditional.slice(1, 13);
+// task 2.21
+const slice21 = arrAdditional.slice(-12, 27);
+// task 2.22
+const slice22 = arrAdditional.slice(1, 26);
+// task 2.23
+const slice23 = arrAdditional.slice(5, 24);
+// task 2.24
+const slice24 = arrAdditional.slice(1, 20);
+// task 2.25
+const slice25 = arrAdditional.slice(7, 26);
+// task 2.26
+const slice26 = arrAdditional.slice(9, 15);
+// task 2.27
+const slice27 = arrAdditional.slice(11, 20);
+// task 2.28
+const slice28 = arrAdditional.slice(8, 21);
+// task 2.29
+const slice29 = arrAdditional.slice(0, 5).concat(arrAdditional.slice(-6, 27));
+// task 2.30
+const slice30 = arrAdditional.slice(2, 4).concat(arrAdditional.slice(14, 16));
+console.log(slice30); // .concat is merging two arrays and return a new array
 
 // Task No. 13 (additional tasks, practice ) part 2 (Fizz = if divide by 3, Buzz = if divide by 5 and FizzBuzz = combined, replacing numbers)
 
 // first method (data in array)
 
-const arrFizzBuzz = [];
 const fi = "Fizz";
 const bu = "Buzz";
 const fiBu = "FizzBuzz";
+const bi = "Biff";
+const fiBi = "FizzBiff";
+const buBi = "BuzzBiff";
+const fiBuBiff = "FizzBuzzBiff";
 
 function fb(sequence) {
-  for (let i = 1; i <= 100; i++) {
+  const arrFizzBuzz = [];
+
+  for (let i = 1; i <= sequence; i++) {
     if (i % 3 === 0 && i % 5 === 0) {
       arrFizzBuzz.push(fiBu);
     } else if (i % 5 === 0) {
@@ -908,10 +968,21 @@ function fiBuzz(sequence) {
       console.log(i);
     }
   }
-  return;
 }
 
 fiBuzz(100);
+
+// 5. Skaičiai, kurie dalinasi iš 7, turi būti pakeisti į žodį „Biff".
+// 5.1. Skaičiai, kurie dalinasi iš 7 ir 3 turi būti pakeisti į žodį „FizzBiff";
+// 5.2. Skaičiai, kurie dalinasi iš 7 ir 5 turi būti pakeisti į žodį „BuzzBiff";
+// 5.3. Skaičiai, kurie dalinasi iš 7, iš 5 ir iš 3 turi būti pakeisti į žodį „FizzBuzzBiff";
+// --------------------------------------------------------
+// 6. Skaičiai, kurie dalinasi iš 9, turi būti pakeisti į žodį „Fuzz".
+// 7. Skaičiai, kurie dalinasi iš 11, turi būti pakeisti į žodį „Bizz".
+
+console.groupEnd();
+
+console.groupCollapsed("more function practice and updated fizzBuzz function");
 
 // Task No. 14 (expressions and arrow functions ) part 1 (output your name with arrow function)
 
@@ -983,3 +1054,129 @@ const youSquareNum = (randomNum) => {
 };
 
 console.log(youSquareNum(yourRandomNum(1, 10)));
+
+// Task No. 15 (more practice with functions) part 1 (convert km/h to m/s and vice versa)
+
+const kmH = 75; // kilometers per hour
+const mS = 15; // meters per second
+
+function convertKMHtoMS(num) {
+  const calc = (num * 1000) / (60 * 60);
+  const converter = +calc.toFixed(2);
+
+  return `${converter} m/s`;
+}
+
+function convertMStoKMH(num) {
+  const calc = num * 3.6;
+  return `${calc} km/h`;
+}
+
+console.log(convertKMHtoMS(kmH));
+console.log(convertMStoKMH(mS));
+
+// Task No. 15 (more practice with functions) part 2 (compare numbers and output the bigger one, if numbers is equal then output a string - "equal", if one of comparing argument is not a number output a string - "Error: most arguments must be numbers")
+
+// Numbers to compare:
+const firstArgument = 3;
+const secondArgument = 2;
+// ---------------------------
+const compareNumber = (num1, num2) => {
+  if (typeof num1 === "string" || typeof num2 === "string") {
+    return "Error: most arguments must be numbers";
+  }
+
+  if (num1 === num2) {
+    return `When comparing the numbers ${num1} and ${num2} the result is equal`;
+  }
+
+  if (num1 > num2) {
+    return num1;
+  }
+
+  return num2;
+};
+
+// one of the ways = can be used as ternary method --> (num1 > num2 ? num1 : num 2);
+
+console.log(compareNumber(firstArgument, secondArgument));
+
+// Task No. 15 (more practice with functions) part 3 (provide a boolean output for leap years based on user input for any year -> return true if it is a leap year, otherwise return false.)
+
+const isLeapYear = (year) => {
+  if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+console.log(isLeapYear(600));
+
+// Task No. 15 (more practice with functions) part 4 (biggest number in array)
+
+const mainArr = [-1, -3, -2, -5, -4];
+
+const findMaxInArray = (arr) => {
+  let findMax = arr[0];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > findMax) {
+      findMax = arr[i];
+    }
+  }
+  return findMax;
+};
+
+console.log(findMaxInArray(mainArr));
+
+// Task No. 15 (more practice with functions) part 5 (sum all array elements)
+
+const sumArr = [1, 2, 3, 4, 5];
+
+const sumArray = (arr) => {
+  let numTotal = 0;
+  for (let i = 0; i < arr.length; i++) {
+    numTotal += arr[i];
+  }
+  return numTotal;
+};
+
+console.log(sumArray(sumArr));
+
+// Task No. 15 (more practice with functions) part 6 (compare to arrays and if they identical return true and if they have differences return false)
+
+// first method (convert -> toString() it have imperfection, because it's return true when comparing string "1" with number 1)
+
+const arr1 = [1, 2, 3];
+const arr2 = [1, 2, "3"];
+const arr1String = arr1.toString();
+const arr2String = arr2.toString();
+
+const areArrayEqual = (arr1, arr2) => {
+  if (arr1 === arr2) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+console.log(areArrayEqual(arr1String, arr2String));
+
+// second method (check length and index in array)
+
+const areArrayEqual2 = (arr1, arr2) => {
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr1[i] !== arr2[i]) {
+      return false;
+    }
+  }
+  return true;
+};
+
+console.log(areArrayEqual2(arr1, arr2));
+
+console.groupEnd();

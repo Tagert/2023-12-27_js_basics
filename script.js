@@ -1180,3 +1180,75 @@ const areArrayEqual2 = (arr1, arr2) => {
 console.log(areArrayEqual2(arr1, arr2));
 
 console.groupEnd();
+// console.groupCollapsed("function callout using it another function");
+
+// Task No. 15 (more practice with functions) part 7 (create array with revers order of array elements)
+
+const reverseString = (string) => {
+  let stringReverse = "";
+  for (let i = string.length - 1; i >= 0; i--) {
+    stringReverse += string[i];
+  }
+  return stringReverse;
+};
+
+console.log(reverseString("Please help me out"));
+
+// Task No. 15 (more practice with functions) part 8 (check string if it palindrome)
+const wordChecked = "savas";
+
+const isPalindrome = (string) => {
+  let stringReverse = "";
+  for (let i = string.length - 1; i >= 0; i--) {
+    stringReverse += string[i];
+    // console.log(string[i]);
+    // console.log(i);
+    // console.log(stringReverse);
+  }
+  if (stringReverse === string) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+console.log(isPalindrome(wordChecked));
+
+// Task No. 15 (more practice with functions) part 8 (pyramid of numbers)
+
+const pyramidEndNum = 20;
+
+//task method - complete
+
+// const printPyramid = (numEnd) => {
+//   let inNum = 0;
+//   for (let i = 1; i <= numEnd; i++) {
+//     inNum = i;
+//     let inNumString = inNum.toString();
+//     for (let j = 1; j < i; j++) {
+//       inNumString += i;
+//     }
+//     console.log(inNumString);
+//   }
+// };
+
+// pyramid method, when numbers bigger than 9
+
+const printPyramid = (numEnd) => {
+  let inNum = 0;
+  for (let i = 1; i <= numEnd; i++) {
+    inNum = i;
+    let inNumString = inNum.toString();
+    for (let j = 1; j < i; j++) {
+      if (i < 10) {
+        inNumString += i;
+      }
+      inNumString += i;
+    }
+    console.log(inNumString);
+  }
+};
+
+printPyramid(pyramidEndNum);
+
+// console.groupEnd();

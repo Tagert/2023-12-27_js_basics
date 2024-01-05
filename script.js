@@ -1180,7 +1180,7 @@ const areArrayEqual2 = (arr1, arr2) => {
 console.log(areArrayEqual2(arr1, arr2));
 
 console.groupEnd();
-// console.groupCollapsed("function callout using it another function");
+console.groupCollapsed("function callout using it another function");
 
 // Task No. 15 (more practice with functions) part 7 (create array with revers order of array elements)
 
@@ -1251,4 +1251,4 @@ const printPyramid = (numEnd) => {
 
 printPyramid(pyramidEndNum);
 
-// console.groupEnd();
+console.groupEnd();

@@ -32,32 +32,29 @@ const FizzBuzzBiff = "FizzBuzzBiff"; // div: 7 && 5 && 3
 
 function testYourSelf(sequence) {
   for (let i = 1; i <= sequence; i++) {
-    // Operators - (remainder (%))
     const divBy3 = i % 3 === 0;
     const divBy5 = i % 5 === 0;
     const divBy7 = i % 7 === 0;
     const divBy9 = i % 9 === 0;
     const divBy11 = i % 11 === 0;
 
-    if (divBy7 && divBy5 && divBy3) {
-      console.log(FizzBuzzBiff);
-    } else if (divBy7 && divBy5) {
-      console.log(BuzzBiff);
-    } else if (divBy7 && divBy3) {
-      console.log(FizzBiff);
-    } else if (divBy11) {
-      console.log(Bizz);
-    } else if (divBy9) {
-      console.log(Fuzz);
-    } else if (divBy7) {
-      console.log(Biff);
-    } else if (divBy5) {
-      console.log(Buzz);
-    } else if (divBy3) {
-      console.log(Fizz);
-    } else {
-      console.log(i);
-    }
+    divBy7 && divBy5 && divBy3
+      ? console.log(FizzBuzzBiff)
+      : divBy7 && divBy5
+      ? console.log(BuzzBiff)
+      : divBy7 && divBy3
+      ? console.log(FizzBiff)
+      : divBy11
+      ? console.log(Bizz)
+      : divBy9
+      ? console.log(Fuzz)
+      : divBy7
+      ? console.log(Biff)
+      : divBy5
+      ? console.log(Buzz)
+      : divBy3
+      ? console.log(Fizz)
+      : console.log(i);
   }
 }
 

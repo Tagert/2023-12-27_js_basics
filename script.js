@@ -1252,3 +1252,99 @@ const printPyramid = (numEnd) => {
 printPyramid(pyramidEndNum);
 
 console.groupEnd();
+
+console.groupCollapsed("string, number and boolean methods");
+
+// Task No. 16 (string, numbers and booleans) part 1 (convert text to uppercase)
+
+const textToUpperCase = "Labas";
+const convertToUpperCase = textToUpperCase.toUpperCase();
+
+console.log(convertToUpperCase);
+
+// Task No. 16 (string, numbers and booleans) part 2 (extract symbols from string)
+
+const textString = "Sveikas pasauli";
+const extractSubstring = textString.slice(2, 7);
+
+console.log(extractSubstring);
+
+// Task No. 16 (string, numbers and booleans) part 3 (first letter of the word need to convert to uppercase)
+
+const textCapitalize = "labas rytas, pasauli!";
+
+const capitalizeFirstLetter = (string) => {
+  const wordsSplit = string.split(" ");
+  let newString = ""; // empty string, it will fill with a new value
+
+  for (let i = 0; i < wordsSplit.length; i++) {
+    const word = wordsSplit[i]; // string split to a separate words
+    if (word) {
+      newString += word.charAt(0).toUpperCase() + word.slice(1);
+    }
+
+    if (i < wordsSplit.length - 1) {
+      newString += " ";
+    }
+  }
+
+  return newString;
+};
+
+console.log(capitalizeFirstLetter(textCapitalize));
+
+// Task No. 16 (string, numbers and booleans) part 4 (change a word from a string to another word)
+const censor = "badword";
+const censorString = "This is a badword and another badword";
+
+const censorStringSplit = censorString.split(" ");
+const censorCurseWords = (string, censor) => {
+  let newCensorString = "";
+
+  for (let i = 0; i < string.length; i++) {
+    const word = censorStringSplit[i];
+
+    if (word.includes(censor)) {
+      newCensorString += word.replace(censor, " ****");
+    }
+
+    if (i < censorStringSplit.length - 1) {
+      newCensorString += " ";
+    }
+
+    if (i < censorStringSplit.length - 1) {
+      newCensorString += word;
+    }
+  }
+  return newCensorString;
+};
+
+console.log(censorCurseWords(censorStringSplit, censor));
+
+// Task No. 16 (string, numbers and booleans) part 5 (check is there any number after dot (integers))
+
+const milkPrice = 3.41;
+
+if (Number.isInteger(milkPrice)) {
+  console.log("No need to have cents");
+} else {
+  console.log("Don't forget to take your cents");
+}
+
+console.log(milkPrice.toFixed(2));
+
+// Task No. 16 (string, numbers and booleans) part 6 (find a biggest number)
+const numbersArr = [1, 2, 4, 6, 9, 10, 15];
+
+const findMax = (numbers) => Math.max(...numbers);
+
+console.log(findMax(numbersArr));
+
+// Task No. 16 (string, numbers and booleans) part 7 (simple boolean practice)
+
+const isLegalAge = true;
+
+console.log(isLegalAge);
+console.log(isLegalAge.toString());
+
+console.groupEnd();

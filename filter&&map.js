@@ -1,14 +1,6 @@
 "use strict";
 
 // 3. Tęsiant darbą su ankstesniu masyvu atlikti šias užduotis naudojant filter metodą. Kiekvienai užduočiai sukurti naują kintamąjį, jame išsaugoti reikšmę, kurią grąžina filter metodas, ir šį kintamąjį išvesti į konsolę:
-// 3.1. Gauti tik teigiamus skaičius.
-// 3.2. Gauti tik neigiamus skaičius.
-// 3.3. Gauti tik skaičius, kurie dalinasi iš 2.
-// 3.4. Gauti tik skaičius, kurie dalinasi iš 3.
-// 3.5. Gauti tik skaičius, kurie dalinasi iš 5.
-// 3.6. Gauti tik skaičius, kurie dalinasi iš 11.
-// 3.7. Gauti tik skaičius, kurie dalinasi iš 31.
-
 //----------------------------------------------------------------
 
 const arr = [
@@ -41,7 +33,7 @@ const arr = [
   "end",
 ];
 console.groupCollapsed("3.1 - 3.9");
-// 3.1.
+// 3.1. Gauti tik teigiamus skaičius.
 const filteredArr1 = arr.filter((num) => {
   if (typeof num === "string") {
     return false;
@@ -50,7 +42,7 @@ const filteredArr1 = arr.filter((num) => {
   }
 });
 console.log(filteredArr1);
-// 3.2.
+// 3.2. Gauti tik neigiamus skaičius.
 const filteredArr2 = arr.filter((num) => {
   if (typeof num === "string") {
     return false;
@@ -59,7 +51,7 @@ const filteredArr2 = arr.filter((num) => {
   }
 });
 console.log(filteredArr2);
-// 3.3.
+// 3.3. Gauti tik skaičius, kurie dalinasi iš 2.
 const filteredArr3 = arr.filter((num) => {
   if (typeof num === "string") {
     return false;
@@ -70,7 +62,7 @@ const filteredArr3 = arr.filter((num) => {
   }
 });
 console.log(filteredArr3);
-// 3.4.
+// 3.4. Gauti tik skaičius, kurie dalinasi iš 3.
 const filteredArr4 = arr.filter((num) => {
   if (typeof num === "string") {
     return false;
@@ -81,7 +73,7 @@ const filteredArr4 = arr.filter((num) => {
   }
 });
 console.log(filteredArr4);
-// 3.5.
+// 3.5. Gauti tik skaičius, kurie dalinasi iš 5.
 const filteredArr5 = arr.filter((num) => {
   if (typeof num === "string") {
     return false;
@@ -92,7 +84,7 @@ const filteredArr5 = arr.filter((num) => {
   }
 });
 console.log(filteredArr5);
-// 3.6.
+// 3.6. Gauti tik skaičius, kurie dalinasi iš 11.
 const filteredArr6 = arr.filter((num) => {
   if (typeof num === "string") {
     return false;
@@ -103,7 +95,7 @@ const filteredArr6 = arr.filter((num) => {
   }
 });
 console.log(filteredArr6);
-// 3.7.
+// 3.7. Gauti tik skaičius, kurie dalinasi iš 31.
 const filteredArr7 = arr.filter((num) => {
   if (typeof num === "string") {
     return false;
@@ -570,4 +562,178 @@ const filteredArr50 = arr.filter((num) => {
 });
 console.log(filteredArr50);
 
+console.groupEnd();
+console.groupCollapsed("3.51 - 3.59");
+
+// 3.51. Gauti tik skaičius.
+const filteredArr51 = arr.filter((num) => {
+  if (typeof num !== "string") {
+    return true;
+  }
+});
+console.log(filteredArr51);
+// 3.52. Gauti tik tekstus (string).
+const filteredArr52 = arr.filter((num) => {
+  if (typeof num === "string") {
+    return true;
+  }
+});
+console.log(filteredArr52);
+// 3.53. Gauti tik tekstus (string), kurie turi daugiau nei 5 simbolius.
+const filteredArr53 = arr.filter(
+  (arr) => typeof arr === "string" && arr.length > 5
+);
+console.log(filteredArr53);
+// 3.54. Gauti tik tekstus (string), kurie turi mažiau arba lygiai 5 simbolius.
+const filteredArr54 = arr.filter(
+  (arr) => typeof arr === "string" && arr.length <= 5
+);
+console.log(filteredArr54);
+// 3.55. Gauti tik tekstus (string), kurie turi mažiau nei 7 simbolius.
+const filteredArr55 = arr.filter(
+  (arr) => typeof arr === "string" && arr.length < 7
+);
+console.log(filteredArr55);
+// 3.56. Gauti tik tekstus (string), kurie turi raidę t.
+const letter1 = "t";
+const filteredArr56 = arr.filter(
+  (arr) => typeof arr === "string" && arr.includes(letter1)
+);
+console.log(filteredArr56);
+// 3.57. Gauti tik tekstus (string), kurie turi raidę y.
+const filteredArr57 = arr.filter(
+  (arr) => typeof arr === "string" && arr.includes("y")
+);
+console.log(filteredArr57);
+// 3.58. Gauti tik tekstus (string), kurie turi raides e arba a.
+const filteredArr58 = arr.filter(
+  (arr) => typeof arr === "string" && (arr.includes("a") || arr.includes("e"))
+);
+console.log(filteredArr58);
+// 3.59. Gauti tik tekstus (string), kurie turi raides t ir i.
+const filteredArr59 = arr.filter(
+  (arr) => typeof arr === "string" && arr.includes("t") && arr.includes("i")
+);
+console.log(filteredArr59);
+console.groupEnd();
+console.groupCollapsed("3.60 - 3.69");
+// 3.60. Gauti tik tekstus (string), kurie turi raide t, bet neturi raidės k.
+const filteredArr60 = arr.filter(
+  (arr) => typeof arr === "string" && arr.includes("t") && !arr.includes("k")
+);
+console.log(filteredArr60);
+// 3.61. Gauti tik tekstus (string), kurie turi raide a, bet neturi raidės s.
+const filteredArr61 = arr.filter(
+  (arr) => typeof arr === "string" && arr.includes("a") && !arr.includes("s")
+);
+console.log(filteredArr61);
+// 3.62. Gauti tik tekstus (string), kurie turi daugiau nei vieną raidę t.
+let filteredArr62 = arr.filter((item) => {
+  if (typeof item === "string") {
+    let letterCount = 0;
+
+    for (let i = 0; i < item.length; i++) {
+      let letter = item[i];
+
+      if (letter === "t") {
+        letterCount++;
+      }
+    }
+    return letterCount > 1;
+  }
+});
+console.log(filteredArr62);
+// 3.63. Gauti tik tekstus (string), kurie turi raidžių junginį st.
+const filteredArr63 = arr.filter(
+  (arr) => typeof arr === "string" && arr.includes("st")
+);
+console.log(filteredArr63);
+// 3.64. Gauti tik tekstus (string), kurie turi raidžių junginį nd.
+const filteredArr64 = arr.filter(
+  (arr) => typeof arr === "string" && arr.includes("nd")
+);
+console.log(filteredArr64);
+// 3.65. Gauti tik tekstus (string), kurie neturi raidės s.
+const filteredArr65 = arr.filter(
+  (arr) => typeof arr === "string" && !arr.includes("s")
+);
+console.log(filteredArr65);
+// 3.66. Gauti tik tekstus (string), kurie neturi raidės t.
+const filteredArr66 = arr.filter(
+  (arr) => typeof arr === "string" && !arr.includes("t")
+);
+console.log(filteredArr66);
+// 3.67. Gauti tik tekstus (string), kurie neturi raidės r ir l.
+const filteredArr67 = arr.filter(
+  (arr) => typeof arr === "string" && !arr.includes("r") && !arr.includes("l")
+);
+console.log(filteredArr67);
+// 3.68. Gauti tik tekstus (string), kurie prasideda skaičiumi.
+const filteredArr68 = arr.filter(
+  (arr) => typeof arr === "string" && !isNaN(arr[0])
+);
+console.log(filteredArr68);
+// 3.69. Gauti tik tekstus (string), kurie prasideda raide s.
+const filteredArr69 = arr.filter(
+  (arr) => typeof arr === "string" && arr.startsWith("s")
+);
+console.log(filteredArr69);
+// 3.70. Gauti tik tekstus (string), kurie prasideda raide o.
+console.groupEnd();
+console.groupCollapsed("3.70 - 3.80");
+const filteredArr70 = arr.filter(
+  (arr) => typeof arr === "string" && arr.startsWith("o")
+);
+console.log(filteredArr70);
+// 3.71. Gauti tik tekstus (string), kurie baigiasi raide d.
+const filteredArr71 = arr.filter(
+  (arr) => typeof arr === "string" && arr.endsWith("d")
+);
+console.log(filteredArr71);
+// 3.72. Gauti tik tekstus (string), kurie baigiasi raide s.
+const filteredArr72 = arr.filter(
+  (arr) => typeof arr === "string" && arr.endsWith("s")
+);
+console.log(filteredArr72);
+// 3.73. Gauti tik tekstus (string), kurie turi daugiau nei 4 simbolius ir turi raidę o.
+const filteredArr73 = arr.filter(
+  (arr) => typeof arr === "string" && arr.length > 4 && arr.includes("o")
+);
+console.log(filteredArr73);
+// 3.74. Gauti tik tekstus (string), kurie turi daugiau arba lygiai 5 simbolius ir turi raidę a.
+const filteredArr74 = arr.filter(
+  (arr) => typeof arr === "string" && arr.length > 4 && arr.includes("o")
+);
+console.log(filteredArr74);
+// 3.75. Gauti tik tekstus (string), kurie turi porinį simbolių skaičių.
+const filteredArr75 = arr.filter(
+  (arr) => typeof arr === "string" && arr.length % 2 === 0
+);
+console.log(filteredArr75);
+// 3.76. Gauti tik tekstus (string), kurie turi neporinį simbolių skaičių ir turi raidę s.
+const filteredArr76 = arr.filter(
+  (arr) => typeof arr === "string" && arr.length % 2 !== 0 && arr.includes("s")
+);
+console.log(filteredArr76);
+// 3.77. Gauti tik tekstus (string), kurių trečias simbolis yra a.
+const filteredArr77 = arr.filter(
+  (arr) => typeof arr === "string" && arr[2] === "a"
+);
+console.log(filteredArr77);
+// 3.78. Gauti tik tekstus (string), kurių ketvirtas simbolis yra l.
+const filteredArr78 = arr.filter(
+  (arr) => typeof arr === "string" && arr[3] === "l"
+);
+console.log(filteredArr78);
+// 3.79. Gauti tik tekstus (string), kurių penktas simbolis nėra t ir kurie turi daugiau simbolių nei 4.
+const filteredArr79 = arr.filter(
+  (arr) => typeof arr === "string" && arr[4] !== "t" && arr.length > 4
+);
+console.log(filteredArr79);
+// 3.80. Gauti tik tekstus (string), kurių pirmas simbolis nėra e, kurie turi mažiau simbolių nei 6 ir kurie neprasideda skaičiumi.
+const filteredArr80 = arr.filter(
+  (arr) =>
+    typeof arr === "string" && arr[0] !== "e" && arr.length < 6 && isNaN(arr[0])
+);
+console.log(filteredArr80);
 console.groupEnd();

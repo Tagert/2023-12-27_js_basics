@@ -1348,3 +1348,212 @@ console.log(isLegalAge);
 console.log(isLegalAge.toString());
 
 console.groupEnd();
+
+console.groupCollapsed("callback: map(), filter(), forEach() and more");
+
+// Task No. 17 (callback: map(), filter(), forEach() and more) part 1 (create main function which will callback another function and then return console.log)
+
+const frName = "andrew";
+
+const coreFunction = (name, callback) => {
+  const capitalizeName =
+    name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+  callback(capitalizeName);
+};
+
+const consoleName = (text) => {
+  console.log(text);
+};
+
+const alertName = (text) => {
+  alert(text);
+};
+
+coreFunction(frName, consoleName);
+
+// Task No. 17 (callback: map(), filter(), forEach() and more) part 2 (return value to console.log from array)
+
+const carBrandsArr = [
+  "VW",
+  "Audi",
+  "Bentley",
+  "Bugatti",
+  "Lamborghini",
+  "Porsche",
+];
+
+carBrandsArr.forEach((arr) => console.log(arr));
+
+// Task No. 17 (callback: map(), filter(), forEach() and more) part 3 (return value to console.log from array with slight edit)
+
+const newCars = carBrandsArr.map((arr, i) => i + ": " + arr);
+
+console.log(newCars);
+
+// Task No. 17 (callback: map(), filter(), forEach() and more) part 4 (create an array with random names and using map() method return an array with first capital latter)
+
+const randomNames = ["peTras", "aNdRius", "jonas", "lUkas", "toMAs", "lInas"];
+
+const fixedNames = randomNames.map(
+  (name) => name.charAt(0).toUpperCase() + name.slice(1).toLowerCase()
+);
+
+console.log(fixedNames);
+
+// Task No. 17 (callback: map(), filter(), forEach() and more) part 5 (filter 18+ age from array)
+
+const friendsAge = [17, 21, 16, 15, 25, 31, 54, 14, 12, 33];
+
+const ageAbove18 = friendsAge.filter((age) => age >= 18);
+
+console.log(ageAbove18);
+
+// Task No. 17 (callback: map(), filter(), forEach() and more) part 6 (filter a city name by first letter)
+
+const citiesArray = [
+  "Vilnius",
+  "Kaunas",
+  "Klaipeda",
+  "Siauliai",
+  "Panevezys",
+  "Alytus",
+  "Marijampole",
+];
+
+const findCity = citiesArray.filter((city) => city.charAt(0) === "K");
+
+console.log(findCity);
+
+// Task No. 17 (callback: map(), filter(), forEach() and more) part 7 (with some() need to check is there any item starting with lowercase letter)
+
+const citiesWithLowerCase = citiesArray.some(
+  (city) => city.charAt(0) === city.charAt(0).toLowerCase()
+);
+
+console.log(citiesWithLowerCase);
+
+// Task No. 17 (callback: map(), filter(), forEach() and more) part 8 (with some() need to check is there any item starting with uppercase letter)
+
+const citiesWithUpperCase = citiesArray.some(
+  (city) => city.charAt(0) === city.charAt(0).toUpperCase()
+);
+
+console.log(citiesWithUpperCase);
+
+console.groupEnd();
+
+// Task No. 17 (practice of sort() and reduce()) part 1 (sort names by abc..)
+
+const friendsArray = ["Andrew", "John", "Dick", "Joe", "Peter", "Luke", "Alex"];
+
+const sortedFriends = friendsArray.sort((a, b) => {
+  if (a > b) {
+    return 1;
+  } else {
+    return -1;
+  }
+});
+
+// or just friends.sort();
+
+console.log(sortedFriends);
+
+// Task No. 17 (practice of sort() and reduce()) part 2 (sort the names from array, Z-A order)
+
+const sortedFriendsBackward = friendsArray.sort((a, b) => {
+  if (b > a) {
+    return 1;
+  } else {
+    return -1;
+  }
+});
+
+console.log(sortedFriendsBackward);
+
+// Task No. 17 (practice of sort() and reduce()) part 3 (numbers array sort from highest to lowest)
+
+const numArr = [5, 10, 20, 11, 12, 1, 0, 14, 25];
+
+const descendingNumArr = numArr.sort((a, b) => b - a);
+
+console.log(descendingNumArr);
+
+// Task No. 17 (practice of sort() and reduce()) part 4 (return first biggest number from array)
+
+const findBiggestNum = numArr.sort((a, b) => b - a);
+
+console.log(findBiggestNum[0]);
+
+// Task No. 18 (more arrays methods) part 1 (add to array with push())
+
+const addElementArray = [7, 10, 20, 12, 1, 14, 25];
+const addElementToArray = "End";
+
+const addElement = (arr, element) => {
+  arr.push(element);
+
+  return arr;
+};
+
+console.log(addElement(addElementArray, addElementToArray));
+
+// Task No. 18 (more arrays methods) part 2 (merge two arrays)
+
+const arrayToMerge1 = [1, 2, 3, 4];
+const arrayToMerge2 = [5, 6, 7, 8];
+
+const mergeArrays = (arr1, arr2) => [...arrayToMerge1, ...arrayToMerge2];
+
+console.log(mergeArrays(arrayToMerge1, arrayToMerge2));
+
+// Task No. 18 (more arrays methods) part 3 (merge array with elements)
+
+const addMultipleElements = (arr, ...elements) => [...arr, ...elements];
+
+console.log(addMultipleElements(arrayToMerge1, 4, 5, 6));
+
+// Task No. 18 (more arrays methods) part 4 (use map() to double arrays value
+
+const doubleNumbers = arrayToMerge1.map((element) => element * 2);
+
+console.log(doubleNumbers);
+
+// Task No. 18 (more arrays methods) part 5 (find an unique numbers, remove additional numbers if they repeat)
+
+const noRepeatArray = [1, 2, 2, 3, 4, 4, 5, 6, 7, 7, 8];
+
+const findUnique = (arr) => [...new Set(arr)];
+
+console.log(findUnique(noRepeatArray));
+
+// Task No. 18 (more arrays methods) part 6 (find out if the sum of the array does not exceeds the limit - 200)
+
+const findArraySum = [30, 70, 90];
+
+const planTrip = findArraySum.reduce((sum, currentValue) => sum + currentValue);
+
+const canItFit = (sum) => {
+  if (sum <= 200) {
+    return `Your weight is ${sum} kg it's fits you can travel`;
+  } else {
+    return `Your weight is ${sum} kg sorry, but you need to manage your weight better`;
+  }
+};
+
+console.log(canItFit(planTrip));
+
+// Task No. 1700 (additional practice) part 1 (create a function which add new element to end of array, without using push() or splice())
+
+const arrayToEdit = [
+  1,
+  5,
+  6,
+  "miestas",
+  7,
+  "kaimas",
+  9,
+  "rajonas",
+  "apskritis",
+];
+
+const replacePushMethod = (element) => {};

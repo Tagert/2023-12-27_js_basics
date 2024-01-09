@@ -1,18 +1,7 @@
 "use strict";
 
-// ----------------------------------------------------------------------------------------- PART 1
 // 1. Skaičius nuo 1 iki 100.
-// 2. Skaičiai, kurie dalinasi iš 3 turi būti pakeisti į žodį „Fizz";
-// 3. Skaičiai, kurie dalinasi iš 5 turi būti pakeisti į žodį „Buzz";
-// 4. Skaičiai, kurie dalinasi iš 3 ir 5 turi būti pakeisti į žodį „FizzBuzz";
-// ----------------------------------------------------------------------------------------- PART 2
-// 5. Skaičiai, kurie dalinasi iš 7, turi būti pakeisti į žodį „Biff".
-// 5.1. Skaičiai, kurie dalinasi iš 7 ir 3 turi būti pakeisti į žodį „FizzBiff";
-// 5.2. Skaičiai, kurie dalinasi iš 7 ir 5 turi būti pakeisti į žodį „BuzzBiff";
-// 5.3. Skaičiai, kurie dalinasi iš 7, iš 5 ir iš 3 turi būti pakeisti į žodį „FizzBuzzBiff";
-// ----------------------------------------------------------------------------------------- PART 3
-// 6. Skaičiai, kurie dalinasi iš 9, turi būti pakeisti į žodį „Fuzz".
-// 7. Skaičiai, kurie dalinasi iš 11, turi būti pakeisti į žodį „Bizz".
+
 // ----------------------------------------------------------------------------------------- PRACTICAL ASSIGNMENT
 
 // Divisible by (1) number
@@ -39,29 +28,31 @@ function testYourSelf(sequence) {
     const divBy9 = i % 9 === 0;
     const divBy11 = i % 11 === 0;
 
+    // 5.3. Skaičiai, kurie dalinasi iš 7, iš 5 ir iš 3 turi būti pakeisti į žodį „FizzBuzzBiff";
     if (divBy7 && divBy5 && divBy3) {
       console.log(FizzBuzzBiff);
+      // 5.2. Skaičiai, kurie dalinasi iš 7 ir 5 turi būti pakeisti į žodį „BuzzBiff";
     } else if (divBy7 && divBy5) {
       console.log(BuzzBiff);
-      //-----
+      // 5.1. Skaičiai, kurie dalinasi iš 7 ir 3 turi būti pakeisti į žodį „FizzBiff";
     } else if (divBy7 && divBy3) {
       console.log(FizzBiff);
-      //-----
+      // 4. Skaičiai, kurie dalinasi iš 3 ir 5 turi būti pakeisti į žodį „FizzBuzz";
     } else if (divBy3 && divBy5) {
       console.log(FizzBuzz);
-      //-----
+      // 7. Skaičiai, kurie dalinasi iš 11, turi būti pakeisti į žodį „Bizz".
     } else if (divBy11) {
       console.log(Bizz);
-      //-----
+      // 6. Skaičiai, kurie dalinasi iš 9, turi būti pakeisti į žodį „Fuzz".
     } else if (divBy9) {
       console.log(Fuzz);
-      //-----
+      // 5. Skaičiai, kurie dalinasi iš 7, turi būti pakeisti į žodį „Biff".
     } else if (divBy7) {
       console.log(Biff);
-      //-----
+      // 3. Skaičiai, kurie dalinasi iš 5 turi būti pakeisti į žodį „Buzz";
     } else if (divBy5) {
       console.log(Buzz);
-      //-----
+      // 2. Skaičiai, kurie dalinasi iš 3 turi būti pakeisti į žodį „Fizz";
     } else if (divBy3) {
       console.log(Fizz);
     } else {
@@ -71,3 +62,15 @@ function testYourSelf(sequence) {
 }
 
 testYourSelf(105);
+
+// (divBy11 && divBy9 && divBy7 && divBy5 && divBy3)
+// console.log("BizzFuzzBiffBuzzFizz")
+
+// (divBy11 && divBy9 && divBy7 && divBy5)
+// console.log("BizzFuzzBiffBuzz")
+
+// (divBy11 && divBy9 && divBy7)
+// console.log("BizzFuzzBiff")
+
+// (divBy11 && divBy9)
+// console.log("BizzFuzz")

@@ -16,45 +16,37 @@
 // ----------------------------------------------------------------------------------------- PRACTICAL ASSIGNMENT
 
 // Divisible by (1) number
-const Bizz = "Bizz"; // div: 11
-const Fuzz = "Fuzz"; // div: 9
-const Biff = "Biff"; // div: 7
-const Buzz = "Buzz"; // div: 5
-const Fizz = "Fizz"; // div: 3
+// const Bizz = "Bizz"; // div: 11
+// const Fuzz = "Fuzz"; // div: 9
+// const Biff = "Biff"; // div: 7
+// const Buzz = "Buzz"; // div: 5
+// const Fizz = "Fizz"; // div: 3
 
 // Divisible by (2) numbers
-const BuzzBiff = "BuzzBiff"; // div: 7 && 5
-const FizzBiff = "FizzBiff"; // div: 7 && 3
-const FizzBuzz = "FizzBuzz"; // div: 3 && 5
+// const BuzzBiff = "BuzzBiff"; // div: 7 && 5
+// const FizzBiff = "FizzBiff"; // div: 7 && 3
+// const FizzBuzz = "FizzBuzz"; // div: 3 && 5
 
 // Divisible by (3) numbers
-const FizzBuzzBiff = "FizzBuzzBiff"; // div: 7 && 5 && 3
+// const FizzBuzzBiff = "FizzBuzzBiff"; // div: 7 && 5 && 3
+
+const wordsArr = ["Fizz", "Buzz", "Biff", "Fuzz", "Bizz"];
+const divByArr = [3, 5, 7, 9, 11];
 
 function testYourSelf(sequence) {
+  //outer loop repeat itself from 1 to the specified sequence.
   for (let i = 1; i <= sequence; i++) {
-    const divBy3 = i % 3 === 0;
-    const divBy5 = i % 5 === 0;
-    const divBy7 = i % 7 === 0;
-    const divBy9 = i % 9 === 0;
-    const divBy11 = i % 11 === 0;
+    let result = "";
 
-    divBy7 && divBy5 && divBy3
-      ? console.log(FizzBuzzBiff)
-      : divBy7 && divBy5
-      ? console.log(BuzzBiff)
-      : divBy7 && divBy3
-      ? console.log(FizzBiff)
-      : divBy11
-      ? console.log(Bizz)
-      : divBy9
-      ? console.log(Fuzz)
-      : divBy7
-      ? console.log(Biff)
-      : divBy5
-      ? console.log(Buzz)
-      : divBy3
-      ? console.log(Fizz)
-      : console.log(i);
+    // inner loop repeat itself and check the divisors in the divByArr array
+    for (let j = 0; j < divByArr.length; j++) {
+      // checks whether the current number i is divisible by the current divisor
+      if (i % divByArr[j] === 0) {
+        // if true, it adds the corresponding word Fizz + Buzz and so on...
+        result += wordsArr[j];
+      }
+    }
+    console.log(result || i); // adds the corresponding word or the number
   }
 }
 

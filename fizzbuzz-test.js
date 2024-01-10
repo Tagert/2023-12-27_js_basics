@@ -51,3 +51,33 @@ function testYourSelf(sequence) {
 }
 
 testYourSelf(105);
+
+// Another method with Object()
+
+const words = {
+  3: "Fizz",
+  5: "Buzz",
+  7: "Biff",
+  9: "Fuzz",
+  11: "Bizz",
+};
+
+function testYourSelfObj(sequence) {
+  const resultArray = [];
+
+  for (let i = 1; i <= sequence; i++) {
+    let result = "";
+
+    for (const divisor in words) {
+      if (i % divisor === 0) {
+        result += words[divisor];
+      }
+    }
+
+    resultArray.push(result || i.toString());
+  }
+
+  return resultArray;
+}
+
+console.log(testYourSelfObj(105));

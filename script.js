@@ -1542,18 +1542,129 @@ const canItFit = (sum) => {
 
 console.log(canItFit(planTrip));
 
-// Task No. 1700 (additional practice) part 1 (create a function which add new element to end of array, without using push() or splice())
+// Task No. 18 (more arrays methods) part 7 (find out from array the number which is most frequent)
+
+const findFrequentNum = [3, 7, 3, 1, 3, 7, 1, 1, 1, 1, 3];
+
+const findMostFrequentNumber = (arr) => {
+  // Step 1: Initialize an object to store the frequency of each number
+  const frequencyMap = {};
+
+  // Step 2: Initialize variables to track the most frequent number and its frequency
+  let mostFrequentNum;
+  let maxFrequency = 0;
+
+  // Step 3: Iterate through each element in the array using forEach
+  arr.forEach((num) => {
+    // Step 4: Update the frequency of the current number in the frequencyMap
+    frequencyMap[num] = (frequencyMap[num] || 0) + 1;
+    console.log(frequencyMap[num]);
+    // Step 5: Check if the frequency of the current number surpasses the current maximum frequency
+    if (frequencyMap[num] > maxFrequency) {
+      // If yes, update mostFrequentNum and maxFrequency
+      mostFrequentNum = num;
+      maxFrequency = frequencyMap[num];
+    }
+  });
+
+  // Step 6: Return the most frequent number
+  return mostFrequentNum;
+};
+
+// Step 7: Call the function and log the result
+const mostFrequentNumber = findMostFrequentNumber(findFrequentNum);
+console.log(`The most frequent number is: ${mostFrequentNumber}`);
+
+// Task No. 18 (more arrays methods) part 8 (find the missing number from array for example - [1, 2, 4, 5] // output 3)
+
+const missingNumArr = [1, 2, 4, 5, 6];
+
+const findMissingNumber = (arr) => {
+  // Step 1: Sort the array in ascending order
+  const sortedArr = arr.sort((a, b) => a - b);
+  // Step 2: Iterate through the sorted array to find the missing or next number
+  for (let i = 0; i < sortedArr.length; i++) {
+    // Step 3: Check if the current number is equal to the expected number in the sequence
+    if (sortedArr[i] !== i + 1) {
+      console.log(sortedArr[i]);
+      // If not, return the expected number (missing number)
+      return i + 1;
+    }
+  }
+
+  // Step 4: If all numbers are in sequence, return the next number in the sequence
+  return sortedArr.length + 1;
+};
+
+// Step 5: Call the function and log the result
+const missingNumber = findMissingNumber(missingNumArr);
+console.log(`The missing or next number is: ${missingNumber}`);
+
+// Task No. 18 (more arrays methods) part 9 (Create a function generateChessBoard that generates an n x n chessboard as a two-dimensional array, where each element is either 'B' (black) or 'W' (white).)
+
+const generateChessBoard = (n) => {
+  // Step 1: Initialize an empty array to represent the chessboard
+  const chessboard = [];
+
+  // Step 2: Iterate through each row
+  for (let i = 0; i < n; i++) {
+    // Step 3: Initialize an empty array to represent the current row
+    const row = [];
+
+    // Step 4: Iterate through each column within the current row
+    for (let j = 0; j < n; j++) {
+      // Step 5: Determine whether the cell should be 'B' (black) or 'W' (white)
+      // based on the sum of row index (i) and column index (j)
+      row.push((i + j) % 2 === 0 ? "B" : "W");
+    }
+
+    // Step 6: Add the current row to the chessboard array
+    chessboard.push(row);
+  }
+
+  // Step 7: Return the generated chessboard
+  return chessboard;
+};
+
+// Step 8: Example - Generate a 5x5 chessboard
+const chessboard5x5 = generateChessBoard(5);
+console.log(chessboard5x5);
+
+// Task No. 19 (additional practice) part 1 (create a function which add new element to end of array, without using push() or splice())
 
 const arrayToEdit = [
   1,
   5,
   6,
-  "miestas",
+  "city",
   7,
-  "kaimas",
+  "countryside",
   9,
-  "rajonas",
-  "apskritis",
+  "district",
+  "county",
 ];
 
-const replacePushMethod = (element) => {};
+// first method
+//...from separate strings create an -> array, then we have two arrays (arr && elements) and later transform those to strings which are in array bracket [] so again it becomes an array
+const replacePushMethod = (arr, ...elements) => [...arr, ...elements];
+
+console.log(addMultipleElements(arrayToEdit, "house", 7, "car"));
+
+// second method
+
+const arrayToEdit2 = [1, 6, "city", 7, "countryside", "district", "county"];
+
+const addElementToEnd = (arr, ...newElement) => {
+  // Find the current length of the array
+  const currentLength = arr.length;
+
+  // Assign the new element to the next index after the last index
+  arr[currentLength] = newElement;
+
+  // Return the modified array
+  return arr;
+};
+
+const newArray = addElementToEnd(arrayToEdit2, 4, 5, 6);
+
+console.log(newArray);

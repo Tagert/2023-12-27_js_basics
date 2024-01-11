@@ -75,13 +75,21 @@ console.log(company1.companyNvoSwitch());
 console.log(company1.companyNvoSwitch());
 // 7. Sukurti funkcijas, kurios grąžina:
 //        7.1. Šalis, kuriose veikia įmonė į vieną string'ą.
-const workingLocationsArr = company1.workingLocations;
+company1.workingLocationsString = function () {
+  let output = `Working locations: ${this.workingLocations.join(", ")}`;
 
-console.log(workingLocationsArr);
+  return output;
+};
+
+console.log(company1.workingLocationsString());
 //        7.2. Veiklos sritis, kuriose veikia įmonė į vieną string'ą.
-const activityAreasArr = company1.activityAreas;
+company1.activityAreasString = function () {
+  let output = `Working locations: ${this.activityAreas.join(", ")}`;
 
-console.log(activityAreasArr);
+  return output;
+};
+
+console.log(company1.activityAreasString());
 // 8. Sukurti funkcijas, kurios prideda:
 //        8.1. Naują veiklos šalį prie šalių masyvo.
 company1.addNewCountry = function (country) {

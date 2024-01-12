@@ -1441,6 +1441,9 @@ const citiesWithUpperCase = citiesArray.some(
 console.log(citiesWithUpperCase);
 
 console.groupEnd();
+console.groupCollapsed(
+  "files path restructuring and some more object practice"
+);
 
 // Task No. 17 (practice of sort() and reduce()) part 1 (sort names by abc..)
 
@@ -1629,7 +1632,7 @@ const generateChessBoard = (n) => {
 // Step 8: Example - Generate a 5x5 chessboard
 const chessboard5x5 = generateChessBoard(5);
 console.log(chessboard5x5);
-
+console.groupEnd();
 // Task No. 19 (additional practice) part 1 (create a function which add new element to end of array, without using push() or splice())
 
 const arrayToEdit = [
@@ -1653,18 +1656,181 @@ console.log(addMultipleElements(arrayToEdit, "house", 7, "car"));
 // second method
 
 const arrayToEdit2 = [1, 6, "city", 7, "countryside", "district", "county"];
+const addNewArray = [4, 5, 6];
 
-const addElementToEnd = (arr, ...newElement) => {
+const addElementToEnd = (arr, newElement) => {
   // Find the current length of the array
-  const currentLength = arr.length;
-
+  const editedArray = new Array(arr.length + newElement.length);
+  console.log(editedArray);
   // Assign the new element to the next index after the last index
-  arr[currentLength] = newElement;
 
+  for (let i = 0; i < arr.length; i++) {
+    editedArray[i] = arr[i];
+  }
+
+  for (let i = 0; i < newElement.length; i++) {
+    editedArray[arr.length + i] = newElement[i];
+  }
   // Return the modified array
-  return arr;
+  return editedArray;
 };
 
-const newArray = addElementToEnd(arrayToEdit2, 4, 5, 6);
+const newArray = addElementToEnd(arrayToEdit2, addNewArray);
 
 console.log(newArray);
+
+// Task No. 19 (additional practice) part 2 (create new members and add them to beginning of the main array, without using unshift() or splice())
+
+const arrayToEdit3 = [6, "city", 7, "countryside", "district", "county"];
+
+const addNewMembers = [5, 1, "life", 47, "cheery"];
+
+const addElementToBeginning = (arr, newMembers) => {
+  // Step 1  - create a new array with enough space for both the existing array and the new members
+  const editedArrayFromStart = [];
+  // const editedArrayFromStart = new Array(newMembers.length + arr.length);
+
+  // Step 2 - iterate through the new members array and add them to the beginning of the new array
+  for (let i = 0; i < newMembers.length; i++) {
+    editedArrayFromStart[i] = newMembers[i];
+  }
+
+  console.log(editedArrayFromStart);
+
+  // Step 3 - iterate through the original array and copy its elements to the right in the new array
+  for (let i = 0; i < arr.length; i++) {
+    editedArrayFromStart[i + newMembers.length] = arr[i];
+  }
+  // Step 4 return the new array with the new members added at the beginning
+  return editedArrayFromStart;
+};
+
+console.log(addElementToBeginning(arrayToEdit3, addNewMembers));
+
+// Task No. 20 (practice with objects)
+
+const people = [
+  {
+    name: "Petras",
+    age: "18",
+  },
+  {
+    name: "Jonas",
+    age: 15,
+  },
+  {
+    name: "Antanas",
+    age: 20,
+  },
+  {
+    name: "Urtė",
+    age: 10,
+  },
+  {
+    name: "Diana",
+    age: 25,
+  },
+  {
+    name: "Ieva",
+    age: 16,
+  },
+];
+
+// part 1 (filter legal age +18)
+
+const filteredPeopleArr1 = people.filter((person) => person.age >= 18);
+
+console.log(filteredPeopleArr1);
+
+// part 2 (filter legal age +18 and return to output only names)
+
+const filteredPeopleArr2 = people
+  .filter((person) => person.age >= 18)
+  .map((person) => person.name);
+
+console.log(filteredPeopleArr2);
+
+// part 3 (filter legal age +18, return to output only names and sort names by A...Z)
+
+const filteredPeopleArr3 = people
+  .filter((person) => person.age >= 18)
+  .map((person) => person.name)
+  .sort();
+
+console.log(filteredPeopleArr3);
+
+// Task No. 20 (practice with objects) part 4 (output cheapest and most expensive items -> Most Expensive: .. , Cheapest: ..)
+
+const shopCard = [
+  {
+    name: "cheese",
+    price: 1.2,
+  },
+  {
+    name: "bread",
+    price: 1.5,
+  },
+  {
+    name: "soda",
+    price: 2.0,
+  },
+  {
+    name: "milk",
+    price: 1.0,
+  },
+  {
+    name: "wine",
+    price: 2.5,
+  },
+  {
+    name: "rice",
+    price: 1.6,
+  },
+];
+
+const findOutCheapest = function (arr) {
+  arr.sort((a, b) => a.price - b.price);
+  return { "Most expensive": arr[arr.length - 1], Cheapest: arr[0] };
+};
+console.log(findOutCheapest(shopCard));
+
+// Task No. 21 (object add, delete, manipulate) part 1 (create function which return object)
+
+const createPerson = (name, lastName, age) => {
+  return {
+    name,
+    lastName,
+    age,
+  };
+};
+
+console.log(createPerson("andrew", "wolf", 33));
+
+// Task No. 21 (object add, delete, manipulate) part 2 (return properties)
+
+const printCarInfo = (car) => {
+  return `Brand: ${car.brand}, Model: ${car.model}, Year: ${car.year}`;
+};
+console.log(printCarInfo({ brand: "Toyota", model: "Corolla", year: 2020 }));
+
+// Task No. 21 (object add, delete, manipulate) part 3 {create array with object which have keys and values from arrays and return all names and position in a string}
+const employeeName = ["Andrew", "John", "Tom"];
+const employeePosition = ["Engineer", "Manager", "Human resources"];
+
+const printEmployeeInfo = function (firstName, position) {
+  const employeeInfoArray = [];
+
+  for (let i = 0; i < firstName.length; i++) {
+    const keyObj = {
+      name: firstName[i],
+      position: position[i],
+    };
+
+    employeeInfoArray.push(keyObj);
+  }
+
+  return employeeInfoArray;
+};
+
+const employeeInfo = printEmployeeInfo(employeeName, employeePosition);
+console.log(employeeInfo);

@@ -344,11 +344,11 @@ const task29 = function (data) {
     // 3 step filtering that array to count how many times the letter 'a' appears.
     const titleHasA =
       item.title &&
-      item.title.split("").filter((letter) => letter === "a").length > 3;
+      item.title.split("").filter((letter) => letter === "a").length >= 3;
 
     const bodyHasO =
       item.body &&
-      item.body.split("").filter((letter) => letter === "o").length < 7;
+      item.body.split("").filter((letter) => letter === "o").length <= 7;
 
     return titleHasA && bodyHasO;
   });
@@ -369,7 +369,7 @@ const task30 = function (data) {
 
   // Step 2: Sort data Based on Body Length
   const sortedDataInArray = newDataArray.sort(
-    (a, b) => b.bodyLength - a.bodyLength
+    (a, b) => a.bodyLength - b.bodyLength
   );
   console.log(sortedDataInArray);
 

@@ -1813,7 +1813,7 @@ const printCarInfo = (car) => {
 };
 console.log(printCarInfo({ brand: "Toyota", model: "Corolla", year: 2020 }));
 
-// Task No. 21 (object add, delete, manipulate) part 3 {create array with object which have keys and values from arrays and return all names and position in a string}
+// Task No. 21 (object add, delete, manipulate) part 3 (create array with object which have keys and values from arrays and return all names and position in a string)
 const employeeName = ["Andrew", "John", "Tom"];
 const employeePosition = ["Engineer", "Manager", "Human resources"];
 
@@ -1834,3 +1834,44 @@ const printEmployeeInfo = function (firstName, position) {
 
 const employeeInfo = printEmployeeInfo(employeeName, employeePosition);
 console.log(employeeInfo);
+
+// Task No. 21 (object add, delete, manipulate) part 4 (find and return from object a book by it's name, similar as search function)
+
+const findName = "Serpen";
+
+const booksLibrary = [
+  { name: "Sword Catcher", author: "Cassandra Clare" },
+  { name: "The Serpent and the Wings of Night", author: "Carissa Broadbent" },
+  { name: "Starling House", author: "Alix E. Harrow" },
+  { name: "Ravensong", author: "TJ Klune" },
+];
+
+function findBook(booksLibrary, bookNames) {
+  const filteredBookNames = booksLibrary.filter((element) =>
+    element.name.toLowerCase().includes(bookNames.toLowerCase())
+  );
+  return filteredBookNames;
+}
+
+console.log(findBook(booksLibrary, findName));
+
+// Task No. 21 (object add, delete, manipulate) part 5 ()
+
+const inventory = { apples: 5, bananas: 8 };
+const inventoryChanges = [
+  { item: "apples", change: 3, action: "add" },
+  { item: "bananas", change: 2, action: "remove" },
+];
+
+function updateInventory(inventory, changes) {
+  const calculate = changes.map((item) => {
+    if (item.action === "add") {
+      return item.changes + inventory.apple;
+    }
+    // else if (item.action === "remove") {
+    //   return inventory.bananas - item.changes;
+    // }
+  });
+}
+
+updateInventory(inventory, inventoryChanges); // { "apples": 8, "bananas": 6 }

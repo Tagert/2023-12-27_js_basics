@@ -1,5 +1,5 @@
 "use strict";
-
+console.groupCollapsed("Task No. 1 of extras");
 const posts = [
   {
     id: 1,
@@ -382,3 +382,162 @@ const task30 = function (data) {
 };
 
 task30(posts);
+
+console.groupEnd();
+
+// 0. Sukurti 3 objektus: keturkampis1, keturkampis2 ir keturkampis3.
+// 1. Visiems keturkampių objektams pridėti plotį ir aukštį.
+// 2. Kiekvienam keturkampio objektui pridėti po funkciją, kuri skaičiuoja plotą.
+// 3. Kiekvienam keturkampio objektui pridėti po funkciją, kuri skaičiuoja perimetrą.
+// 4. Į konsolę išvesti visų keturkampių plotą ir perimetrą.
+
+// 5.1. Antram keturkampiui pridėti spalvą.
+// 5.2. Antram keturkampiui pridėti metodą, kuris leis paskaičiuoti pusės keturkampio plotą.
+
+// 5.3 Trečiam keturkampiui pridėti metodą, kuris grąžins tekstą „Keturkampio plotis: x, keturkampio aukštis: y"
+
+// 5.4 Į konsolę išvesti šiuos naujus duomenis.
+
+// 6.1. Visų keturkampių objektuose sukurti funkciją, kuri grąžina pilną keturkampių informacijos teksta: „Keturkampio plotis: x, keturkampio ilgis: y, keturkampio perimetras: z, keturkampio plotas: y."
+// 6.2. Į konsolę išvesti šiuos naujus duomenis.
+
+const keturkampis1 = {
+  name: "keturkampis1",
+  width: 10,
+  height: 5,
+  area: function () {
+    return this.width * this.height;
+  },
+
+  perimeter: function () {
+    return (this.width + this.height) * 2;
+  },
+  fullDescription: function () {
+    return `Keturkampio plotis: ${this.width}, keturkampio ilgis: ${
+      this.height
+    }, keturkampio perimetras: ${this.perimeter()}, keturkampio plotas: ${this.area()}.`;
+  },
+};
+
+console.log(keturkampis1.area(), keturkampis1.perimeter());
+console.log(keturkampis1.fullDescription());
+
+const keturkampis2 = {
+  name: "keturkampis2",
+  width: 11,
+  height: 8,
+  color: "orange",
+  area: function () {
+    return this.width * this.height;
+  },
+  perimeter: function () {
+    return (this.width + this.height) * 2;
+  },
+  halfArea: function () {
+    return this.area() / 2;
+  },
+  fullDescription: function () {
+    return `Keturkampio plotis: ${this.width}, keturkampio ilgis: ${
+      this.height
+    }, keturkampio perimetras: ${this.perimeter()}, keturkampio plotas: ${this.area()}.`;
+  },
+};
+
+console.log(keturkampis2.area(), keturkampis2.perimeter());
+console.log(keturkampis2.color, keturkampis2.halfArea());
+console.log(keturkampis2.fullDescription());
+
+const keturkampis3 = {
+  name: "keturkampis3",
+  width: 12,
+  height: 3,
+  area: function () {
+    return this.width * this.height;
+  },
+  perimeter: function () {
+    return (this.width + this.height) * 2;
+  },
+  description: function () {
+    return `Keturkampio plotis: ${this.width}, keturkampio aukštis: ${this.height}`;
+  },
+  fullDescription: function () {
+    return `Keturkampio plotis: ${this.width}, keturkampio ilgis: ${
+      this.height
+    }, keturkampio perimetras: ${this.perimeter()}, keturkampio plotas: ${this.area()}.`;
+  },
+};
+
+console.log(keturkampis3.area(), keturkampis3.perimeter());
+console.log(keturkampis3.description());
+console.log(keturkampis3.fullDescription());
+
+// Second method with OOP
+console.log(
+  "Second method with OOP ---------------------------------------------"
+);
+
+class Rectangle {
+  constructor(rectName, rectWidth, rectHeight) {
+    this.name = rectName;
+    this.width = rectWidth;
+    this.height = rectHeight;
+  }
+
+  getArea() {
+    const area = this.width * this.height;
+    return area;
+  }
+
+  getPerimeter() {
+    const perimeter = (this.width + this.height) * 2;
+    return perimeter;
+  }
+
+  getFullInfo() {
+    const fullInfo = `Keturkampio plotis: ${this.width}, keturkampio ilgis: ${
+      this.height
+    }, keturkampio perimetras: ${this.getPerimeter()}, keturkampio plotas: ${this.getArea()}.`;
+    return fullInfo;
+  }
+}
+
+class HalfRectangle extends Rectangle {
+  constructor(rectName, rectWidth, rectHeight, rectColor) {
+    super();
+    this.name = rectName;
+    this.width = rectWidth;
+    this.height = rectHeight;
+    this.color = rectColor;
+  }
+
+  getHalfArea() {
+    const halfArea = this.getArea() / 2;
+    return halfArea;
+  }
+}
+
+class InfoRectangle extends Rectangle {
+  constructor(rectName, rectWidth, rectHeight) {
+    super();
+    this.name = rectName;
+    this.width = rectWidth;
+    this.height = rectHeight;
+  }
+
+  getInfoRectangle() {
+    const infoRectangle = `Keturkampio plotis: ${this.width}, keturkampio aukštis: ${this.height}`;
+    return infoRectangle;
+  }
+}
+
+const rectangle1 = new Rectangle(keturkampis1, 10, 5);
+console.log(rectangle1.getArea(), rectangle1.getPerimeter());
+console.log(rectangle1.getFullInfo());
+const rectangle2 = new HalfRectangle(keturkampis2, 11, 8, "orange");
+console.log(rectangle2.getArea(), rectangle1.getPerimeter());
+console.log(rectangle2.color, rectangle2.getHalfArea());
+console.log(rectangle2.getFullInfo());
+const rectangle3 = new InfoRectangle(keturkampis3, 12, 3);
+console.log(rectangle3.getArea(), rectangle1.getPerimeter());
+console.log(rectangle3.getInfoRectangle());
+console.log(rectangle3.getFullInfo());

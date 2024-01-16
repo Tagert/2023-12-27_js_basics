@@ -32,7 +32,7 @@ class Cars {
     basePrice,
     discount,
     mileage,
-    carColor
+    carColor = "black"
   ) {
     this.brand = brand;
     this.model = model;
@@ -43,6 +43,18 @@ class Cars {
     this.mileage = mileage;
     this.color = carColor;
     this.baseColors = ["black", "red", "blue", "grey", "white", "special blue"];
+
+    if (this.mileage > 0 && this.mileage < 20000) {
+      this.mileageDiscount = 10;
+    } else if (this.mileage >= 20000 && this.mileage < 50000) {
+      this.mileageDiscount = 15;
+    } else if (this.mileage >= 50000 && this.mileage < 100000) {
+      this.mileageDiscount = 20;
+    } else if (this.mileage >= 100000 && this.mileage < 400000) {
+      this.mileageDiscount = 30;
+    } else if (this.mileage >= 400000) {
+      this.mileageDiscount = 50;
+    }
   }
 
   getEngineTurnOn() {
@@ -72,21 +84,40 @@ class Cars {
 
   getDiscountByMileage() {
     if (this.mileage > 0 && this.mileage < 20000) {
-      const discountAfterMileage = this.getDiscount() * ((100 - 10) / 100);
+      const discountAfterMileage =
+        this.getDiscount() * ((100 - this.mileageDiscount) / 100);
       return Math.floor(discountAfterMileage);
     } else if (this.mileage >= 20000 && this.mileage < 50000) {
-      const discountAfterMileage = this.getDiscount() * ((100 - 15) / 100);
+      const discountAfterMileage =
+        this.getDiscount() * ((100 - this.mileageDiscount) / 100);
       return Math.floor(discountAfterMileage);
     } else if (this.mileage >= 50000 && this.mileage < 100000) {
-      const discountAfterMileage = this.getDiscount() * ((100 - 20) / 100);
+      const discountAfterMileage =
+        this.getDiscount() * ((100 - this.mileageDiscount) / 100);
       return Math.floor(discountAfterMileage);
     } else if (this.mileage >= 100000 && this.mileage < 400000) {
-      const discountAfterMileage = this.getDiscount() * ((100 - 30) / 100);
+      const discountAfterMileage =
+        this.getDiscount() * ((100 - this.mileageDiscount) / 100);
       return Math.floor(discountAfterMileage);
     } else if (this.mileage >= 400000) {
-      const discountAfterMileage = this.getDiscount() * ((100 - 50) / 100);
+      const discountAfterMileage =
+        this.getDiscount() * ((100 - this.mileageDiscount) / 100);
       return Math.floor(discountAfterMileage);
     }
+  }
+
+  getPriceByColor() {
+    for (let i = 0; i < this.baseColors.length; i++) {
+      if (this.baseColors[i] === this.color) {
+        return this.getDiscountByMileage();
+      }
+
+      if (this.baseColors[5] === this.color) {
+        return this.getDiscountByMileage() + 500;
+      }
+    }
+
+    return this.getDiscountByMileage() + 3000;
   }
 }
 
@@ -99,21 +130,25 @@ const carModel1 = new Cars(
   10,
   24200
 );
+console.log(carModel1);
 console.log(
   `The car model you picked is ${carModel1.model} No. 1 __________________________________`
 );
-console.log(
-  `The car you picked is ${
-    carModel1.model
-  }. The price is determined by the engine: ${carModel1.getPrice()}`
-);
+console.log(`The price is determined by the engine: ${carModel1.getPrice()}`);
 console.log(
   `Price has been reduced by a personal discount (${
     carModel1.discount
   }%): ${carModel1.getDiscount()}`
 );
 console.log(
-  `Price has been reduced by a mileage discount: ${carModel1.getDiscountByMileage()}`
+  `Price has been reduced by a mileage (${carModel1.mileage} miles) discount (${
+    carModel1.mileageDiscount
+  }%): ${carModel1.getDiscountByMileage()}`
+);
+console.log(
+  `The final price is (color - ${
+    carModel1.color
+  })  = ${carModel1.getPriceByColor()} $`
 );
 
 const carModel2 = new Cars(
@@ -123,8 +158,10 @@ const carModel2 = new Cars(
   "vroom",
   16800,
   8,
-  125400
+  125400,
+  "white"
 );
+console.log(carModel2);
 console.log(
   `The car model you picked is ${carModel2.model} No. 2 __________________________________`
 );
@@ -139,7 +176,14 @@ console.log(
   }%): ${carModel2.getDiscount()}`
 );
 console.log(
-  `Price has been reduced by a mileage discount: ${carModel2.getDiscountByMileage()}`
+  `Price has been reduced by a mileage (${carModel2.mileage} miles) discount (${
+    carModel2.mileageDiscount
+  }%): ${carModel2.getDiscountByMileage()}`
+);
+console.log(
+  `The final price is (color - ${
+    carModel2.color
+  })  = ${carModel2.getPriceByColor()} $`
 );
 
 const carModel3 = new Cars(
@@ -149,8 +193,10 @@ const carModel3 = new Cars(
   "vroom",
   23200,
   12,
-  53400
+  53400,
+  "green"
 );
+console.log(carModel3);
 console.log(
   `The car model you picked is ${carModel3.model} No. 3 __________________________________`
 );
@@ -161,7 +207,14 @@ console.log(
   }%): ${carModel3.getDiscount()}`
 );
 console.log(
-  `Price has been reduced by a mileage discount: ${carModel3.getDiscountByMileage()}`
+  `Price has been reduced by a mileage (${carModel3.mileage} miles) discount (${
+    carModel3.mileageDiscount
+  }%): ${carModel3.getDiscountByMileage()}`
+);
+console.log(
+  `The final price is (color - ${
+    carModel3.color
+  })  = ${carModel3.getPriceByColor()} $`
 );
 
 const carModel4 = new Cars(
@@ -171,8 +224,10 @@ const carModel4 = new Cars(
   "vroom",
   13200,
   5,
-  413420
+  413420,
+  "special blue"
 );
+console.log(carModel4);
 console.log(
   `The car model you picked is ${carModel4.model} No. 4 __________________________________`
 );
@@ -189,8 +244,16 @@ console.log(
 console.log(
   `The car you picked is ${
     carModel4.model
-  }. This price has been reduced by a mileage discount: ${carModel4.getDiscountByMileage()}`
+  }. This price has been reduced by a mileage (${
+    carModel4.mileage
+  } miles) discount (${
+    carModel4.mileageDiscount
+  }%): ${carModel4.getDiscountByMileage()}`
+);
+console.log(
+  `The final price is (color - ${
+    carModel4.color
+  })  = ${carModel4.getPriceByColor()} $`
 );
 
-console.log(carModel1, carModel2);
 // console.log(carModel1.getEngineTurnOn());

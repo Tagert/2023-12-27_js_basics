@@ -1855,7 +1855,7 @@ function findBook(booksLibrary, bookNames) {
 
 console.log(findBook(booksLibrary, findName));
 
-// Task No. 21 (object add, delete, manipulate) part 5 ()
+// Task No. 21 (object add, delete, manipulate) part 5 (change inventory number depending on add or remove)
 
 const inventory = { apples: 5, bananas: 8 };
 const inventoryChanges = [
@@ -1864,14 +1864,171 @@ const inventoryChanges = [
 ];
 
 function updateInventory(inventory, changes) {
-  const calculate = changes.map((item) => {
-    if (item.action === "add") {
-      return item.changes + inventory.apple;
+  changes.map((element) => {
+    if (element.action === "add") {
+      inventory[element.item] = (inventory[element.item] || 0) + element.change;
+    } else if (element.action === "remove") {
+      inventory[element.item] = (inventory[element.item] || 0) - element.change;
     }
-    // else if (item.action === "remove") {
-    //   return inventory.bananas - item.changes;
-    // }
   });
+  return inventory;
 }
 
-updateInventory(inventory, inventoryChanges); // { "apples": 8, "bananas": 6 }
+console.log(updateInventory(inventory, inventoryChanges)); // { "apples": 8, "bananas": 6 }
+
+// Task No. 22 (new theme - OOP practice) part 1 (create a class BankAccount and add functionality of deposit and withdraw which change balance)
+
+class BankAccount {
+  constructor(ownerName, balance) {
+    this.ownerName = ownerName;
+    this.balance = balance;
+  }
+
+  deposit(amount) {
+    this.balance += amount;
+  }
+
+  withdraw(amount) {
+    this.balance -= amount;
+  }
+}
+
+const firstAccount = new BankAccount("Andrew", 1000);
+firstAccount.deposit(100);
+firstAccount.withdraw(30);
+console.log(firstAccount.balance);
+const secondAccount = new BankAccount("Peter", 800);
+secondAccount.deposit(150);
+secondAccount.withdraw(60);
+console.log(secondAccount.balance);
+const thirdAccount = new BankAccount("Anna", 950);
+thirdAccount.deposit(200);
+thirdAccount.withdraw(110);
+console.log(thirdAccount.balance);
+
+// Task No. 22 (new theme - OOP practice) part 2 (classes: Vehicle, sub-classes: Car and Bike. Each class should have a method that prints all the information about the vehicle.)
+
+class Vehicle {
+  constructor(brand, model) {
+    this.brand = brand;
+    this.model = model;
+  }
+
+  information() {
+    const info = `Brand: ${this.brand}, Model: ${this.model}`;
+    return info;
+  }
+}
+
+class Car extends Vehicle {
+  constructor(brand, model, engineType) {
+    super(brand, model);
+    this.engineType = engineType;
+  }
+
+  information() {
+    const info = `${super.information()}, Engine Type: ${this.engineType}`;
+    return info;
+  }
+}
+
+class Bicycle extends Vehicle {
+  constructor(brand, model, hasEngine) {
+    super(brand, model);
+    this.hasEngine = hasEngine;
+  }
+
+  information() {
+    const info = `${super.information()}, Has Engine: ${this.hasEngine}`;
+    return info;
+  }
+}
+
+const newCar = new Car("Toyota", "Corolla", "Petrol");
+console.log(newCar);
+console.log(newCar.information());
+
+const newBicycle = new Bicycle("Trek", "Marlin", true);
+console.log(newBicycle);
+console.log(newBicycle.information());
+
+// Task No. 22 (more OOP practice) part 1 (create function get summary of the book)
+
+class Book {
+  constructor(title, author, year) {
+    this.title = title;
+    this.author = author;
+    this.year = year;
+  }
+
+  getSummary() {
+    const summary = `${this.title} by ${this.author} published in ${this.year}`;
+    return summary;
+  }
+}
+
+const book1 = new Book("Book Title", "Author Name", "2023");
+console.log(book1);
+console.log(book1.getSummary());
+
+// Task No. 22 (more OOP practice) part 2 (add a music student and his level, the default level is "beginner" and after practice() it goes up, becomes one higher - intermediate and so on.)
+
+class MusicStudent {
+  constructor(name, instrument, level = "beginner") {
+    this.name = name;
+    this.instrument = instrument;
+    this.level = level;
+
+    this.levels = ["beginner", "intermediate", "advanced", "expert"];
+  }
+
+  practice() {
+    for (let i = 0; i < this.levels.length; i++) {
+      if (this.level === this.levels[i]) {
+        return (this.level = this.levels[i + 1]);
+      }
+    }
+  }
+}
+
+const student1 = new MusicStudent("Anna", "piano");
+
+console.log(student1);
+student1.practice();
+console.log(`${student1.name}, ${student1.instrument}, ${student1.level}`);
+student1.practice();
+console.log(`${student1.name}, ${student1.instrument}, ${student1.level}`);
+
+// Task No. 22 (more OOP practice) part 3 (add objects, remove and calculate)
+
+class ShoppingCart {
+  constructor() {
+    this.items = [];
+  }
+
+  addItem(item) {
+    const addToCard = this.items.push(item);
+    return addToCard;
+  }
+
+  removeItem(itemName) {
+    const removeFromCard = this.items.filter((item) => item.name !== itemName);
+    console.log(removeFromCard);
+    return (this.items = removeFromCard);
+  }
+
+  calculateTotal() {
+    const calculate = this.items.reduce((total, item) => total + item.price, 0);
+    return calculate;
+  }
+}
+
+const cart = new ShoppingCart();
+cart.addItem({ name: "Apple", price: 0.98 });
+cart.addItem({ name: "Bread", price: 1.29 });
+cart.addItem({ name: "Orange", price: 1.37 });
+console.log(cart);
+console.log(cart.calculateTotal());
+cart.removeItem("Apple");
+console.log(cart);
+console.log(cart.calculateTotal());

@@ -16,13 +16,6 @@
 //        6.2. Jeigu nurodyta spalva yra 'special blue', tai automobilio kaina turi padidėti 500.
 //        6.3. Jeigu nurodytos spalvos nėra tarp bazinių spalvų, tai automobilio kaina turėtų padidėti 3000.
 
-// class Cars {
-//   constructor(carColor) {
-//     this.baseColors = ['juoda', 'raudona', 'mėlyna', 'sidabrinė', 'balta', 'special blue']
-//     this.color = carColor
-//   }
-// }
-
 class Cars {
   constructor(
     brand,
@@ -42,6 +35,7 @@ class Cars {
     this.discount = discount;
     this.mileage = mileage;
     this.color = carColor;
+
     this.baseColors = ["black", "red", "blue", "grey", "white", "special blue"];
 
     if (this.mileage > 0 && this.mileage < 20000) {
@@ -118,6 +112,70 @@ class Cars {
     }
 
     return this.getDiscountByMileage() + 3000;
+  }
+
+  renderElement() {
+    // MAIN CONTAINER
+    const carElement = document.createElement("div");
+    carElement.classList.add("car-container");
+
+    // IMAGES-BOX
+    const carImageElement = document.createElement("div");
+    carImageElement.classList.add("car-image-card");
+    carElement.append(carImageElement);
+
+    const imageElement = document.createElement("img");
+    imageElement.src =
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Skoda_Octavia_IV_liftback_%28cropped%29.jpg/800px-Skoda_Octavia_IV_liftback_%28cropped%29.jpg";
+    imageElement.classList.add("image");
+    carImageElement.append(imageElement);
+
+    const image2Element = document.querySelectorAll("img");
+    const child = image2Element[0];
+
+    //   "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/%C5%A0koda_Fabia_IV_1X7A7110_%28cropped%29.jpg/1920px-%C5%A0koda_Fabia_IV_1X7A7110_%28cropped%29.jpg";
+    // const image2Element = document.createElement("img");
+    // image2Element.src =
+    //   "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/%C5%A0koda_Fabia_IV_1X7A7110_%28cropped%29.jpg/1920px-%C5%A0koda_Fabia_IV_1X7A7110_%28cropped%29.jpg";
+    // image2Element.classList.add("image");
+    // carImageElement.append(image2Element);
+
+    // DESCRIPTION-BOX
+    const carDescriptionElement = document.createElement("div");
+    carDescriptionElement.classList.add("car-description-card");
+    carElement.append(carDescriptionElement);
+
+    const brandElement = document.createElement("h2");
+    brandElement.classList.add("car-brand");
+    brandElement.textContent = `${this.brand}`;
+    carDescriptionElement.append(brandElement);
+
+    const modelElement = document.createElement("h3");
+    modelElement.classList.add("car-model");
+    modelElement.textContent = `${this.model}`;
+    carDescriptionElement.append(modelElement);
+
+    const engineTypeElement = document.createElement("h4");
+    engineTypeElement.classList.add("engine-type");
+    engineTypeElement.textContent = `${this.engine} engine`;
+    carDescriptionElement.append(engineTypeElement);
+
+    const mileageElement = document.createElement("h4");
+    mileageElement.classList.add("mileage-text");
+    mileageElement.textContent = `${this.mileage} miles`;
+    carDescriptionElement.append(mileageElement);
+
+    const colorElement = document.createElement("h4");
+    colorElement.classList.add("color");
+    colorElement.textContent = `${this.color} color`;
+    carDescriptionElement.append(colorElement);
+
+    const basePriceElement = document.createElement("h4");
+    basePriceElement.classList.add("base-price");
+    basePriceElement.textContent = `The base price starts at  ${this.getPrice()}`;
+    carDescriptionElement.append(basePriceElement);
+
+    return carElement;
   }
 }
 
@@ -257,3 +315,15 @@ console.log(
 );
 
 // console.log(carModel1.getEngineTurnOn());
+
+// 7. Sukurti metodą 'renderElement', kuris sukurią html elementą, jame atvaizduoja automobilio informaciją (modelį, brandą, variklio tipą, kilometražą, spalvą, bazinę kainą) ir šį elementą išveda į ekraną.
+//        7.1. Pridėti property 'image' (nuotraukos nuoroda), kuris turėtų būti nuotrauka ir šią nuotrauką, taip pat, pridėti į formuluojamą elementą.
+
+const contentElement = document.querySelector("#content");
+
+const carModel1Element = carModel1.renderElement();
+const carModel2Element = carModel2.renderElement();
+const carModel3Element = carModel3.renderElement();
+const carModel4Element = carModel4.renderElement();
+contentElement.append(carModel1Element, carModel2Element, carModel3Element);
+contentElement.append(carModel4Element);

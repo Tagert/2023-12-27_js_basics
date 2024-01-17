@@ -2032,3 +2032,22 @@ console.log(cart.calculateTotal());
 cart.removeItem("Apple");
 console.log(cart);
 console.log(cart.calculateTotal());
+
+// Task No. 22 (more OOP practice) part 4 (movie theater seats checking, booking and canceling functionality)
+
+class MovieTheater {
+  constructor(rows, seatsPerRow) {
+    this.seats = Array.from({ length: rows }, () =>
+      Array(seatsPerRow).fill(false)
+    );
+  }
+
+  bookSeats() {}
+
+  cancelBooking() {}
+
+  checkAvailability() {}
+}
+
+const theater = new MovieTheater(5, 5);
+console.log(theater);

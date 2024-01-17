@@ -5,6 +5,7 @@
 }
 
 body {
+  font-size: 0.9rem;
   background-color: #222222;
 }
 
@@ -27,4 +28,52 @@ p {
 
 span {
   display: block;
+}
+
+#content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.car-container {
+  display: flex;
+  max-width: 30rem;
+  max-height: 15rem;
+  align-items: end;
+  /* margin: 1rem; */
+  padding: 1rem;
+  background-color: aliceblue;
+}
+
+.car-image-card {
+  width: 50%;
+  height: 100%;
+}
+
+.car-description-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.2rem;
+  width: 50%;
+  height: 100%;
+  padding: 1rem;
+}
+
+.car-image {
+  height: 2rem;
+  width: 2rem;
+}
+
+.color,
+.engine-type {
+  text-transform: capitalize;
+}
+
+img {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
 }

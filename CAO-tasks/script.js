@@ -1633,6 +1633,7 @@ const generateChessBoard = (n) => {
 const chessboard5x5 = generateChessBoard(5);
 console.log(chessboard5x5);
 console.groupEnd();
+console.groupCollapsed("arrays and objects");
 // Task No. 19 (additional practice) part 1 (create a function which add new element to end of array, without using push() or splice())
 
 const arrayToEdit = [
@@ -2051,3 +2052,50 @@ class MovieTheater {
 
 const theater = new MovieTheater(5, 5);
 console.log(theater);
+console.groupEnd();
+
+// Task No. 22 (DOM practice) part 1 (create a new element with text in html)
+
+const divContentElement = document.getElementById("content");
+const addParagraph = (text) => {
+  const paragraphElement = document.createElement("P");
+  divContentElement.after(paragraphElement);
+  paragraphElement.textContent = text;
+
+  return paragraphElement;
+};
+
+addParagraph("It's my first time, I just added text from JS.");
+
+// Task No. 22 (DOM practice) part 2 (change a text in html element)
+
+const headingElement = document.querySelector("h1");
+headingElement.setAttribute("id", "name");
+headingElement.textContent = "Hello World!!";
+
+// Task No. 22 (DOM practice) part 3 (change a text in html element)
+
+const spanElement = document.querySelector("span");
+spanElement.style.borderBottom = "1px solid white";
+spanElement.style.paddingBottom = "2rem";
+
+// Task No. 22 (DOM practice) part 4 (create and order list and after that change order of elements)
+const orderListElement = document.createElement("ol");
+divContentElement.append(orderListElement);
+
+for (let i = 1; i <= 3; i++) {
+  const listElement = document.createElement("li");
+  orderListElement.append(listElement);
+  const paragraph2Element = document.createElement("p");
+  listElement.append(paragraph2Element);
+  paragraph2Element.textContent = `Text (${i * 100})`;
+}
+
+document.querySelector("ol").style.color = "white";
+document.querySelector("ol").style.fontSize = "1rem";
+
+const change1 = document.querySelector("li:first-child > p");
+const change2 = document.querySelector("li:nth-child(2) > p");
+
+change1.textContent = "Text (200)";
+change2.textContent = "Text (100)";
